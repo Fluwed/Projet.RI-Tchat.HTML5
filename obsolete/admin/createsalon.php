@@ -25,7 +25,7 @@
 			echo $timestampf;
 			
 			
-			$db = mysql_connect('tse-pilat.univ-st-etienne.fr', 'root', ''); 
+			$db = mysql_connect('localhost', 'paul', 'paul'); 
 			mysql_select_db('Salons',$db); 
 			$sql = "insert into Salons (salon,timestampouverture,timestampfermeture) values ('".$titre."','".$timestampouverture."','".$timestampf."');" ;
 			//echo $sql; 

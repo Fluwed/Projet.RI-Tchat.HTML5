@@ -72,7 +72,7 @@ footer
 <div class="container">
         <img class="sixteen columns" src="images/bandeau.jpg" />
         <div class="sixteen columns" id="menu">
-             <a href="http://recrutement.telecom-st-etienne.fr/tchat/index.php"><img class="one columns" id="home" name="home" src="images/picto_home_4.gif" onmouseover="home.src='images/picto_home_5.gif'" onmouseout="home.src='images/picto_home_4.gif'"/></a>
+             <a href="index.php"><img class="one columns" id="home" name="home" src="images/picto_home_4.gif" onmouseover="home.src='images/picto_home_5.gif'" onmouseout="home.src='images/picto_home_4.gif'"/></a>
             <div class="twelve columns" id="bienvenue">
                 <p><?php echo $roomname?>&nbsp;</p>
             </div>
@@ -131,7 +131,7 @@ function sendMsg(){
 	
 	document.getElementById("chats").innerHTML+=strip('<div class="msgln">'+username+' : '+msg+'<br/></div>');
 	$("#chats").animate({ scrollTop: 2000 }, 'normal');
-	$.get('/tchat/server.php?msg='+msg+'&user='+username+'&iduser='+idUser+'&room=<?php echo $room; ?>', function(data)
+	$.get('server.php?msg='+msg+'&user='+username+'&iduser='+idUser+'&room=<?php echo $room; ?>', function(data)
 	{
 		
 		document.getElementById("msg").value = '';

@@ -129,7 +129,7 @@ footer
 <div class="container">
         <img class="sixteen columns" src="../images/bandeau.jpg" />
         <div class="sixteen columns" id="menu">
-             <a href="http://recrutement.telecom-st-etienne.fr/tchat/index.php"><img class="one columns" id="home" name="home" src="../images/picto_home_4.gif" onmouseover="home.src='../images/picto_home_5.gif'" onmouseout="home.src='../images/picto_home_4.gif'"/></a>
+             <a href="../index.php"><img class="one columns" id="home" name="home" src="../images/picto_home_4.gif" onmouseover="home.src='../images/picto_home_5.gif'" onmouseout="home.src='../images/picto_home_4.gif'"/></a>
             
             <div class="twelve columns" id="bienvenue">
                 <p><?php echo $roomname?>&nbsp;</p>
@@ -200,7 +200,7 @@ function sendMsg(){
 	document.getElementById("mychat").innerHTML+=strip('<div class="mymsgln">'+username+' : '+msg+'<br/></div>');
 	$("#mychat").animate({ scrollTop: 2000 }, 'normal');
 	$("#chats").animate({ scrollTop: 2000 }, 'normal');
-	$.get('/tchat/server.php?msg='+msg+'&user='+username+'&iduser='+idUser+'&room=<?php echo $room; ?>'+"&isAdmin=1", function(data)
+	$.get('../server.php?msg='+msg+'&user='+username+'&iduser='+idUser+'&room=<?php echo $room; ?>'+"&isAdmin=1", function(data)
 	{
 		document.getElementById("msg").value = '';
 		document.getElementById("utilisateur").innerHTML="Vous êtes connecté sous le pseudo : "+username;
@@ -209,7 +209,7 @@ function sendMsg(){
 }
 
 var old = '';
-var chaine='/tchat/server.php?iduser='+idUser+'&room=<?php echo $room; ?>';
+var chaine='../server.php?iduser='+idUser+'&room=<?php echo $room; ?>';
 var source = new EventSource(chaine);
 
 source.onmessage = function(e)

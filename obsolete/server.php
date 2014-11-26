@@ -22,7 +22,7 @@ $mydate=time();
 $idSalon=$_GET['room'];
 $iduser=$_GET['iduser'];
 
-$db = mysql_connect('tse-pilat.univ-st-etienne.fr', 'root', ''); 
+$db = mysql_connect('localhost', 'paul', 'paul'); 
 mysql_select_db('Salons',$db); 
 
 if(isset($_GET['iduser']) && isset($_GET['msg']))

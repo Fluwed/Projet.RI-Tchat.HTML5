@@ -9,6 +9,10 @@ if ($_SESSION['nomLogin'] != NULL)
     session_destroy(); 
 }
 
+$server = "localhost";
+$user = "paul";
+$pass = "paul";
+
 //récupération des salons ouverts
 $db = mysql_connect($server, $user,$pass); 
 mysql_query("SET NAMES UTF8");

@@ -48,7 +48,7 @@
 			<?php
 			$mydate=time();
 			//récupération des salons ouverts
-			$db = mysql_connect('tse-pilat.univ-st-etienne.fr', 'root', ''); 
+			$db = mysql_connect('localhost', 'paul', 'paul'); 
 			mysql_select_db('Salons',$db); 
 			
 			//suppression des salons dont la date de fermeture est passée

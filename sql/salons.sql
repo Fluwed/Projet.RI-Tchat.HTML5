@@ -1,4 +1,4 @@
-CREATE DATABASE  `Salons`.`Salons` /*!40100 DEFAULT CHARACTER SET latin1 */
+CREATE DATABASE  `Salons` /*!40100 DEFAULT CHARACTER SET latin1 */
 
 
 CREATE TABLE  `Salons`.`Auteurs` (

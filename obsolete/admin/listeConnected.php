@@ -22,7 +22,7 @@ echo "<ul>";
 $idSalon=$_GET['room'];
 
 
-$db = mysql_connect('tse-pilat.univ-st-etienne.fr', 'root', ''); 
+$db = mysql_connect('localhost', 'paul', 'paul'); 
 mysql_select_db('Salons',$db); 
 
 //recuperation du nombre d'users
