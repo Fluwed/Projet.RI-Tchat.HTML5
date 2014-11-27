@@ -15,14 +15,29 @@
 
 <body>
     <img id="imgHeader" src="images/header-TSE.jpg" alt="header">
-    <h2 class="mainTitle">Bienvenue sur le Tchat de Télécom Saint-Étienne</h2>
+    <h2 class="mainTitle">Tchat Télécom Saint-Étienne</h2>
     
-    <div class="row">
-        <div class="col-md-3">
-            <h2>NBTC</h2>
-        </div>
-        <div class="col-md-9">
-            <h2>auie,c</h2>
-        </div>
-    </div>
+    <div class="row" id="padding">
+        <div class="col-sm-2" id="center">
+			<div class="list-group">
+			<div id="gras">
+				<h3 class="list-group-item">Menu</h3>
+			</div>	
+				<a href="index.php" class="list-group-item active">Accueil</a>
+				<a href="agenda.html" class="list-group-item">Connexion</a>
+				<a href="abonnement_actu.html" class="list-group-item">Admin</a>
+			</div>
+		</div>
+		
+        <div class="col-sm-10"><br>
+            <div class="panel panel-default">
+				<div class="panel-heading">
+				  <h2 class="panel-title">Salons de discussion</h2>
+				</div>
+				<div class="panel-body" id="">
+					<p> coucou</p>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
