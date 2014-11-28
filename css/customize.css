@@ -1,14 +1,30 @@
-.imgHeader {
-    min-width:100%;
-    max-width:100%;
-    margin-bottom:15px
+.page-header {
+    background-color: #E4E0DD;
+    background-image: url(../images/header-TSE.jpg);
+    background-repeat: no-repeat;
+    background-position: center top;
+    margin: 0 0 20px 0;
+    padding: 0;
+    width: 100%;
+    min-height: 132px;
+    max-height: 132px;
+    border: none;
 }
 
-.mainTitle {
-    color:#6E6E6E;
-    text-align:center;
-    margin-bottom:15px;
-    font-weight:bold;
+.page-header .logo {
+    background-image: url(../images/logo-TSE.png);
+    background-repeat: no-repeat;
+    background-position: left center;
+    float: left;
+    margin-left: 20px;
+    height: 132px;
+    width: 370px;
+}
+
+.page-header h2 {
+    margin: 47px 0 0 50%;
+    color: floralwhite;
+    text-shadow: 2px 2px 2px #000;
 }
 
 #padding {
@@ -18,4 +34,21 @@
 
 #center {
     text-align:center;
+}
+
+#smallTitle{
+    text-align:center;
+    color: gray;
+}
+
+@media all and (max-width: 992px) {
+    .wideScreen {
+        display: none;
+    }
+}
+
+@media all and (min-width: 992px) {
+    .smallScreen {
+        display: none;
+    }
 }
