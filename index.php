@@ -24,47 +24,56 @@
     </head>
 
     <body>
-        <header class="page-header">
-            <div class="container">
-                <div class="logo"></div>
-                <h2 class="wideScreen">Tchat Télécom Saint-Étienne</h2>
-            </div>
-        </header>
-        <h2 class="smallScreen" id="smallTitle">Tchat Télécom Saint-Étienne</h2>
+    
+        <div id="wrap">
 
-        <div class="row" id="padding">
-
-            <div class="col-sm-2" id="center">
-                <div class="list-group">
-                    <h3 class="list-group-item">Menu</h3>
-                    <a href="index.php" class="list-group-item active">Accueil</a>
-                    <a href="" class="list-group-item">Connexion</a>
-                    <a href="" class="list-group-item">Admin</a>
+            <header class="page-header">
+                <div class="container">
+                    <div class="logo"></div>
+                    <h2 class="wideScreen">Tchat Télécom Saint-Étienne</h2>
                 </div>
-            </div>
+            </header>
 
-            <div class="col-sm-10"><br>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h2 class="panel-title">Salons de discussion</h2>
+            <h2 class="smallScreen" id="smallTitle">Tchat Télécom Saint-Étienne</h2>
+
+            <div class="row" id="padding">
+                <div class="col-sm-2" id="center">
+                    <div class="list-group">
+                        <h3 class="list-group-item">Menu</h3>
+                        <a href="index.php" class="list-group-item active">Accueil</a>
+                        <a href="" class="list-group-item">Connexion</a>
+                        <a href="" class="list-group-item">Admin</a>
                     </div>
-                    <div class="panel-body" id="">
-                        <p>coucou</p>
+                </div>
 
-                        <?php/*
-                            $query = "SELECT * FROM salons";
-                            if ($result = mysqli_query($link, $query)) {
-                                while($row = mysqli_fetch_assoc($result)) {
-                                    printf ("%s (%s)\n", $row["id"], $row["nom"]);
+                <div class="col-sm-10"><br>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h2 class="panel-title">Salons de discussion</h2>
+                        </div>
+                        <div class="panel-body" id="">
+                            <p>coucou</p>
+
+                            <?php/*
+                                $query = "SELECT * FROM salons";
+                                if ($result = mysqli_query($link, $query)) {
+                                    while($row = mysqli_fetch_assoc($result)) {
+                                        printf ("%s (%s)\n", $row["id"], $row["nom"]);
+                                    }
+                                    mysqli_free_result($result);
                                 }
-                                mysqli_free_result($result);
-                            }
-                        */?>
+                            */?>
 
+                        </div>
                     </div>
                 </div>
             </div>
-
         </div>
+
+        <footer class="page-footer">
+            <div class="container">
+                © 2014 Télécom Saint-Etienne
+            </div>
+        </footer>
     </body>
 </html>
