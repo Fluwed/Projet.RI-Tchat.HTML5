@@ -41,7 +41,7 @@
                     <div class="list-group">
                         <h3 class="list-group-item">Menu</h3>
                         <a href="index.php" class="list-group-item active">Accueil</a>
-                        <a href="" class="list-group-item">Connexion</a>
+                        <a href="connexion.php" class="list-group-item">Connexion</a>
                         <a href="" class="list-group-item">Admin</a>
                     </div>
                 </div>

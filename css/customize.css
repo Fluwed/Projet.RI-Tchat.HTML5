@@ -44,6 +44,22 @@ html, body {
     margin: 10px 0 0 0;
 }
 
+.panel-info > .panel-heading {
+    color: #FFF;
+    background-color: #337AB7;
+    border-color: #337AB7;
+}
+
+.panel-info {
+    border-color: #337AB7;
+}
+
+.btn-info {
+    color: #FFF;
+    background-color: #337AB7;
+    border-color: #337AB7;
+}
+
 #wrap {
     min-height: 100%;
     height: auto;
