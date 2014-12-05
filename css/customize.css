@@ -50,6 +50,20 @@ html, body {
     border-color: #337AB7;
 }
 
+.panel-default > .panel-heading {
+    color: #FFF;
+    background-color: #337AB7;
+    border-color: #337AB7;
+}
+
+.panel-default {
+    border-color: #337AB7;
+}
+
+.list-group-item {
+    border: 1px solid #337AB7;
+}
+
 .panel-info {
     border-color: #337AB7;
 }
@@ -58,6 +72,55 @@ html, body {
     color: #FFF;
     background-color: #337AB7;
     border-color: #337AB7;
+}
+
+.panel-body{
+    padding-top:25px
+}
+
+.input-group{
+    margin-bottom: 25px
+}
+
+.form-group{
+    margin-top:10px
+}
+
+#loginbox{
+    margin-top:20px;
+}
+
+#signupbox  {
+    display:none; 
+    margin-top:20px;
+}
+
+#connect{
+    float:right;
+    font-size: 78%;
+    position: relative; 
+    top:-10px;
+}
+
+#inscription{
+    float:right;
+    font-size: 85%; 
+    position: relative; 
+    top:-10px;
+}
+
+#signinlink{
+    color:white;
+}
+
+#forgot_pass{
+    color:white;
+}
+
+#account{
+    border-top: 1px solid#337AB7;
+    padding-top:15px; 
+    font-size:85%;
 }
 
 #wrap {

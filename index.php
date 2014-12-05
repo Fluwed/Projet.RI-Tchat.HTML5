@@ -42,7 +42,6 @@
                         <h3 class="list-group-item">Menu</h3>
                         <a href="index.php" class="list-group-item active">Accueil</a>
                         <a href="connexion.php" class="list-group-item">Connexion</a>
-                        <a href="" class="list-group-item">Admin</a>
                     </div>
                 </div>
 
@@ -52,7 +51,7 @@
                             <h2 class="panel-title">Salons de discussion</h2>
                         </div>
                         <div class="panel-body" id="">
-                            <p>coucou</p>
+                             <p>coucou <br><br><br><br><br><br><br>gyug<br><br><br><br><br>jioj<br><br><br>pojp</p>
 
                             <?php/*
                                 $query = "SELECT * FROM salons";
