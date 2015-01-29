@@ -218,9 +218,18 @@ html, body {
 
 @media all and (max-width: 450px) {
     #bouton_1 {
-        font-size: 16px;
+        font-size: 14px;
     }
     #bouton_2 {
-        font-size: 16px;
+        font-size: 14px;
+    }
+    #bouton_3 {
+        font-size: 14px;
+    }
+    #bouton_4 {
+        font-size: 14px;
+    }
+    #bouton_5 {
+        font-size: 14px;
     }
 }

@@ -52,13 +52,13 @@
                                             while($row = mysqli_fetch_assoc($result)) {
                                                 echo "<button type='button' class='btn btn-danger btn-xs btn-block' id='bouton_2'>".$row["nom"]."</button>";
                                                 if ($row = mysqli_fetch_assoc($result)) {
-                                                    echo "<button type='button' class='btn btn-success btn-xs btn-block'>".$row["nom"]."</button>";
+                                                    echo "<button type='button' class='btn btn-success btn-xs btn-block' id='bouton_3'>".$row["nom"]."</button>";
                                                 }
                                                 if ($row = mysqli_fetch_assoc($result)) {
-                                                    echo "<button type='button' class='btn btn-warning btn-xs btn-block'>".$row["nom"]."</button>";
+                                                    echo "<button type='button' class='btn btn-warning btn-xs btn-block' id='bouton_4'>".$row["nom"]."</button>";
                                                 }
                                                 if ($row = mysqli_fetch_assoc($result)) {
-                                                    echo "<button type='button' class='btn btn-primary btn-xs btn-block'>".$row["nom"]."</button>";
+                                                    echo "<button type='button' class='btn btn-primary btn-xs btn-block' id='bouton_5'>".$row["nom"]."</button>";
                                                 }
                                             }
                                             mysqli_free_result($result);
