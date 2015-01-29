@@ -1,13 +1,3 @@
-<?php/*
-    $link = mysqli_connect("localhost", "paul", "paul", "tchat_recrutement");
-    mysqli_set_charset($link , "utf8");
-    
-    if (mysqli_connect_errno()) {
-        printf("Échec de la connexion SQL : %s\n", mysqli_connect_error());
-        exit();
-    }
-*/?>
-
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -52,17 +42,17 @@
                             <h2 class="panel-title">Salons de discussion</h2>
                         </div>
                         <div class="panel-body" id="">
-                             <p>coucou <br><br><br><br><br><br><br>gyug<br><br><br><br><br>jioj<br><br><br>pojp</p>
 
-                            <?php/*
-                                $query = "SELECT * FROM salons";
+                            <?php
+                                require("connectdb.php");
+                                $query = "SELECT * FROM Salons";
                                 if ($result = mysqli_query($link, $query)) {
                                     while($row = mysqli_fetch_assoc($result)) {
-                                        printf ("%s (%s)\n", $row["id"], $row["nom"]);
+                                        printf("%s (%s)\n", $row["id"], $row["nom"]);
                                     }
                                     mysqli_free_result($result);
                                 }
-                            */?>
+                            ?>
 
                         </div>
                     </div>
