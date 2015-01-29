@@ -30,6 +30,7 @@
             <header class="page-header">
                 <div class="container">
                     <div class="logo"></div>
+                    <div class="smallScreen_logo"></div>
                     <h2 class="wideScreen">Tchat Télécom Saint-Étienne</h2>
                 </div>
             </header>

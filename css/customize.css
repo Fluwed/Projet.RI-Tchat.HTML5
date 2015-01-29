@@ -25,6 +25,16 @@ html, body {
     width: 370px;
 }
 
+.page-header .smallScreen_logo {
+    background-image: url(../images/logo-TSE-reduit.png);
+    background-repeat: no-repeat;
+    background-position: left center;
+    float: left;
+    margin-left: 20px;
+    height: 132px;
+    width: 320px;
+}
+
 .page-header h2 {
     margin: 47px 0 0 50%;
     color: floralwhite;
@@ -97,9 +107,9 @@ html, body {
 
 #connect{
     float:right;
-    font-size: 78%;
+    font-size: 75%;
     position: relative; 
-    top:-10px;
+    top:-15px;
 }
 
 #inscription{
@@ -155,3 +165,24 @@ html, body {
         display: none;
     }
 }
+
+@media all and (max-width: 450px) {
+    .logo {
+        display: none;
+    }
+}
+
+@media all and (min-width: 450px) {
+    .smallScreen_logo {
+        display: none;
+    }
+}
+
+@media all and (max-width: 450px) {
+    #connect {
+        float:left;
+        top:-5px;
+    }
+}
+
+
