@@ -111,7 +111,7 @@
                                     <div class="form-group">
                                         <label for="icode" class="col-md-3 control-label">Confirmation</label>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control" name="passwd2" placeholder="Confirmation mot de passe" required>
+                                            <input type="password" class="form-control" name="passwd2" placeholder="Confirmation mot de passe" required>
                                         </div>
                                     </div>
 
