@@ -102,6 +102,13 @@ html, body {
     border-color: #E4E0DD;
 }
 
+.btn-lg {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom : 20px;
+    margin-top : 20px
+}
+
 #loginbox{
     margin-top:20px;
 }
