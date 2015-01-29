@@ -50,15 +50,15 @@
                                         $query = "SELECT * FROM Salons";
                                         if ($result = mysqli_query($link, $query)) {
                                             while($row = mysqli_fetch_assoc($result)) {
-                                                echo "<button type='button' class='btn btn-danger btn-sm btn-block'>".$row["nom"]."</button>";
+                                                echo "<button type='button' class='btn btn-danger btn-xs btn-block'>".$row["nom"]."</button>";
                                                 if ($row = mysqli_fetch_assoc($result)) {
-                                                    echo "<button type='button' class='btn btn-success btn-sm btn-block'>".$row["nom"]."</button>";
+                                                    echo "<button type='button' class='btn btn-success btn-xs btn-block'>".$row["nom"]."</button>";
                                                 }
                                                 if ($row = mysqli_fetch_assoc($result)) {
-                                                    echo "<button type='button' class='btn btn-warning btn-sm btn-block'>".$row["nom"]."</button>";
+                                                    echo "<button type='button' class='btn btn-warning btn-xs btn-block'>".$row["nom"]."</button>";
                                                 }
                                                 if ($row = mysqli_fetch_assoc($result)) {
-                                                    echo "<button type='button' class='btn btn-primary btn-sm btn-block'>".$row["nom"]."</button>";
+                                                    echo "<button type='button' class='btn btn-primary btn-xs btn-block'>".$row["nom"]."</button>";
                                                 }
                                             }
                                             mysqli_free_result($result);
