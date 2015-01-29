@@ -1,11 +1,12 @@
 <?php
-    header('Location: index.php');
     $username=$_POST['username'];
     $passwd=$_POST['passwd'];
     $passwd2=$_POST['passwd2'];
     if ($passwd != $passwd2) {
+        header('Location: connexion.php');
     }
     else {
+        header('Location: index.php');
         require("connectdb.php");
         $query = "INSERT INTO Auteurs (user, password) VALUES ('".$username."','".$passwd."')";
         $result = mysqli_query($link, $query) or die(mysqli_error($link));
