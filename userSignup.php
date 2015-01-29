@@ -5,11 +5,11 @@
     if ($passwd != $passwd2) {
     }
     else {
-        /*require("connectdb.php");
-        $query = "INSERT INTO Auteurs (user, password) VALUES ('".$username."','".$passwd."')";
-        $result = mysqli_query($link, $query) or die(mysqli_error($link));
-        mysqli_free_result($result) or die(mysqli_error($link));
-        mysqli_close($link) or die(mysqli_error($link));*/
+        //require("connectdb.php");
+        //$query = "INSERT INTO Auteurs (user, password) VALUES ('".$username."','".$passwd."')";
+        //$result = mysqli_query($link, $query) or die(mysqli_error($link));
+        //mysqli_free_result($result) or die(mysqli_error($link));
+        mysqli_close($link) or die(mysqli_error($link));
     }
     header("Location: index.php");
     exit;
