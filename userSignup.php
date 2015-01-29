@@ -9,10 +9,11 @@
     else {
         require("connectdb.php");
         $query = "INSERT INTO Auteurs (user, password) VALUES ('".$username."','".$passwd."')";
-        //echo $query;
+        echo $query;
         $result = mysqli_query($link, $query) or die(mysqli_error($link));
         mysqli_free_result($result) or die(mysqli_error($link));
         mysqli_close($link) or die(mysqli_error($link));
-        header('Location: http://pf.fridrick.ovh/pri/index.php');
+        header('Location: index.php');
+        die("<script type='text/javascript'>window.location.href='index.php';</script>");
     }
 ?>
