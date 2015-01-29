@@ -43,22 +43,23 @@
                         </div>
                         <div class="panel-body" id="">
                             <div class="row">
-                                <div class="col-md-2">
-                                    <button type="button" class="btn btn-default btn-lg">Spectateur Global</button>
+                                <div class="col-md-10 col-md-offset-1">
+                                    <button type="button" class="btn btn-default btn-xs btn-block" id="bouton">Spectateur Global</button>
                                     <?php
                                         require("connectdb.php");
                                         $query = "SELECT * FROM Salons";
                                         if ($result = mysqli_query($link, $query)) {
                                             while($row = mysqli_fetch_assoc($result)) {
-                                                echo "<button type='button' class='btn btn-danger btn-lg'>".$row["titre"]."</button>";
+
+                                                echo "<button type='button' class='btn btn-danger btn-xs btn-block' id='bouton'>".$row["titre"]."</button>";
                                                 if ($row = mysqli_fetch_assoc($result)) {
-                                                    echo "<button type='button' class='btn btn-success btn-lg'>".$row["titre"]."</button>";
+                                                    echo "<button type='button' class='btn btn-success btn-xs btn-block' id='bouton'>".$row["titre"]."</button>";
                                                 }
                                                 if ($row = mysqli_fetch_assoc($result)) {
-                                                    echo "<button type='button' class='btn btn-warning btn-lg'>".$row["titre"]."</button>";
+                                                    echo "<button type='button' class='btn btn-warning btn-xs btn-block' id='bouton'>".$row["titre"]."</button>";
                                                 }
                                                 if ($row = mysqli_fetch_assoc($result)) {
-                                                    echo "<button type='button' class='btn btn-primary btn-lg'>".$row["titre"]."</button>";
+                                                    echo "<button type='button' class='btn btn-primary btn-xs btn-block' id='bouton'>".$row["titre"]."</button>";
                                                 }
                                             }
                                             mysqli_free_result($result);

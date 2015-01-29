@@ -84,8 +84,11 @@ html, body {
     border-color: #337AB7;
 }
 
-.panel-body{
-    padding-top:25px
+.panel-body {
+    padding-top: 0px;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 0px
 }
 
 .input-group{
@@ -100,6 +103,20 @@ html, body {
     color: #787878;
     background-color: #E4E0DD;
     border-color: #E4E0DD;
+}
+
+.btn-xs {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom : 30px;
+    margin-top : 30px;
+    font-size: 20px;
+    line-height: 1;
+}
+
+.col-sm-8, .col-md-8 {
+    padding-right: 0px;
+    padding-left: 0px;
 }
 
 #loginbox{
@@ -129,8 +146,12 @@ html, body {
     color:white;
 }
 
-#forgot_pass{
-    color:white;
+#panel-body_connexion{
+    padding-top:25px;
+}
+
+#panel-body_connexion_2{
+    padding-top:15px;
 }
 
 #account{
@@ -185,8 +206,19 @@ html, body {
 }
 
 @media all and (max-width: 450px) {
-    #connect {
-        float:left;
-        top:-5px;
+    #bouton {
+        font-size: 14px;
+    }
+    #bouton_2 {
+        font-size: 14px;
+    }
+    #bouton_3 {
+        font-size: 14px;
+    }
+    #bouton_4 {
+        font-size: 14px;
+    }
+    #bouton_5 {
+        font-size: 14px;
     }
 }

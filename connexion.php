@@ -36,12 +36,12 @@
                 </div>
 
                 <div class="col-sm-10">
-                    <div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                    <div id="loginbox" class="mainbox col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
                         <div class="panel panel-info" >
 
-                                <div class="panel-body">
-                                <form a>
+                                <div class="panel-body" id="panel-body_connexion">
                                     <form id="loginform" class="form-horizontal" action='userLogin.php' method='post'>
+
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                                             <input type="text" id="login-username" class="form-control" name="username" placeholder="Nom d'utilisateur'" required>
@@ -79,7 +79,7 @@
                           </div>
                     </div>
 
-                    <div id="signupbox" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                    <div id="signupbox" class="mainbox col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
                         <div class="panel panel-info">
                             <div class="panel-heading">
                                 <div class="panel-title">Inscription</div>
@@ -88,7 +88,7 @@
                                 </div>
                             </div>
 
-                            <div class="panel-body" >
+                            <div class="panel-body" id="panel-body_connexion_2">
                                 <form id="signupform" class="form-horizontal" role="form" action='userSignup.php' method='post'>
 
                                     <div class="form-group">
