@@ -15,6 +15,6 @@
                     mysqli_free_result($result) or die(mysqli_error($link));
                     mysqli_close($link) or die(mysqli_error($link));
                 }
-                echo "<form action='index.php'>;
+                echo "<form action='index.php'>";
             ?>
 
