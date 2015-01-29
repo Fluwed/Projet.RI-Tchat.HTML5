@@ -44,13 +44,13 @@
                         <div class="panel-body" id="">
                             <div class="row">
                                 <div class="col-md-10 col-md-offset-1">
-                                    <button type="button" class="btn btn-default btn-sm btn-block">Spectateur Global</button>
+                                    <button type="button" class="btn btn-default btn-xs btn-block" id="bouton_1">Spectateur Global</button>
                                     <?php
                                         require("connectdb.php");
                                         $query = "SELECT * FROM Salons";
                                         if ($result = mysqli_query($link, $query)) {
                                             while($row = mysqli_fetch_assoc($result)) {
-                                                echo "<button type='button' class='btn btn-danger btn-xs btn-block'>".$row["nom"]."</button>";
+                                                echo "<button type='button' class='btn btn-danger btn-xs btn-block' id='bouton_2'>".$row["nom"]."</button>";
                                                 if ($row = mysqli_fetch_assoc($result)) {
                                                     echo "<button type='button' class='btn btn-success btn-xs btn-block'>".$row["nom"]."</button>";
                                                 }
