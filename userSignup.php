@@ -13,6 +13,6 @@
         $result = mysqli_query($link, $query) or die(mysqli_error($link));
         mysqli_free_result($result) or die(mysqli_error($link));
         mysqli_close($link) or die(mysqli_error($link));
-        header('Location: pf.fridrick.ovh/pri/index.php');
+        header('Location: http://pf.fridrick.ovh/pri/index.php');
     }
 ?>
