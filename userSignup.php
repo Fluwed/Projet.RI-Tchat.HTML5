@@ -1,4 +1,5 @@
 <?php
+    header('Location: index.php');
     $username=$_POST['username'];
     $passwd=$_POST['passwd'];
     $passwd2=$_POST['passwd2'];
@@ -12,4 +13,3 @@
         mysqli_close($link) or die(mysqli_error($link));
     }
 ?>
-<input type="hidden" name="redirect-url" value="index.php">
