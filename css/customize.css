@@ -84,10 +84,6 @@ html, body {
     border-color: #337AB7;
 }
 
-.panel-body{
-    padding-top:25px
-}
-
 .input-group{
     margin-bottom: 25px
 }
@@ -108,6 +104,11 @@ html, body {
     margin-bottom : 30px;
     margin-top : 30px
 }
+.col-sm-8, .col-md-8 {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
 
 #loginbox{
     margin-top:20px;
@@ -138,6 +139,10 @@ html, body {
 
 #forgot_pass{
     color:white;
+}
+
+#panel-body_connexion{
+    padding-top:25px
 }
 
 #account{

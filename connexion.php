@@ -36,14 +36,14 @@
                 </div>
 
                 <div class="col-sm-10">
-                    <div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                    <div id="loginbox" class="mainbox col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
                         <div class="panel panel-info" >
                                 <div class="panel-heading">
                                     <div class="panel-title">Connexion</div>
                                     <div id ="connect"><a href="#" id="forgot_pass">Mot de passe oublié ?</a></div>
                                 </div>
 
-                                <div class="panel-body">
+                                <div class="panel-body" id="panel-body_connexion">
                                     <form id="loginform" class="form-horizontal">
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -82,7 +82,7 @@
                           </div>
                     </div>
 
-                    <div id="signupbox" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                    <div id="signupbox" class="mainbox col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
                         <div class="panel panel-info">
                             <div class="panel-heading">
                                 <div class="panel-title">Inscription</div>
