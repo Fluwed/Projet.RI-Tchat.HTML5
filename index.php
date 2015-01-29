@@ -50,15 +50,15 @@
                                         $query = "SELECT * FROM Salons";
                                         if ($result = mysqli_query($link, $query)) {
                                             while($row = mysqli_fetch_assoc($result)) {
-                                                echo "<button type='button' class='btn btn-danger btn-lg'>".$row["nom"]."</button>";
+                                                echo "<button type='button' class='btn btn-danger btn-lg'>".$row["titre"]."</button>";
                                                 if ($row = mysqli_fetch_assoc($result)) {
-                                                    echo "<button type='button' class='btn btn-success btn-lg'>".$row["nom"]."</button>";
+                                                    echo "<button type='button' class='btn btn-success btn-lg'>".$row["titre"]."</button>";
                                                 }
                                                 if ($row = mysqli_fetch_assoc($result)) {
-                                                    echo "<button type='button' class='btn btn-warning btn-lg'>".$row["nom"]."</button>";
+                                                    echo "<button type='button' class='btn btn-warning btn-lg'>".$row["titre"]."</button>";
                                                 }
                                                 if ($row = mysqli_fetch_assoc($result)) {
-                                                    echo "<button type='button' class='btn btn-primary btn-lg'>".$row["nom"]."</button>";
+                                                    echo "<button type='button' class='btn btn-primary btn-lg'>".$row["titre"]."</button>";
                                                 }
                                             }
                                             mysqli_free_result($result);

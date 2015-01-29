@@ -22,7 +22,7 @@
 
 $idUser=$_POST['iduser'];
 
-$db = mysql_connect('tse-pilat.univ-st-etienne.fr', 'root', ''); 
+$db = mysql_connect('localhost', 'paul', 'paul'); 
 mysql_select_db('Salons',$db); 
 //on teste d'abord si l'utilisateur que l'on deconnecte est un manager 
 //si oui il faut redistribuer les utilisateurs managés aux autres utilisateurs

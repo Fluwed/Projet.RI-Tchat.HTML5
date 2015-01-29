@@ -26,7 +26,7 @@
         else $comment=".";
         $timestampouverture=time();
 			
-        $db = mysql_connect('tse-pilat.univ-st-etienne.fr', 'root', ''); 
+        $db = mysql_connect('localhost', 'paul', 'paul'); 
 		mysql_select_db('Salons',$db); 
 		$sql = "insert into Coord (comment,timestamp,mail,nom) values ('".$comment."','".$timestampouverture."','".$mail."','".$name."');" ;
 			//echo $sql; 
