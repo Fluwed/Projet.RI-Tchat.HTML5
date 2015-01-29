@@ -96,6 +96,12 @@ html, body {
     margin-top:10px
 }
 
+.btn-default {
+    color: #787878;
+    background-color: #E4E0DD;
+    border-color: #E4E0DD;
+}
+
 #loginbox{
     margin-top:20px;
 }
@@ -184,5 +190,3 @@ html, body {
         top:-5px;
     }
 }
-
-
