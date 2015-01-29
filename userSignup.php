@@ -12,6 +12,6 @@
         $result = mysqli_query($link, $query) or die(mysqli_error($link));
         mysqli_free_result($result) or die(mysqli_error($link));
         mysqli_close($link) or die(mysqli_error($link));
-        header('Location: index.php');
+        echo "<meta http-equiv='refresh' content='1;url=index.php' />";
     }
 ?>
