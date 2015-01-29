@@ -29,6 +29,7 @@
             <header class="page-header">
                 <div class="container">
                     <div class="logo"></div>
+                    <div class="smallScreen_logo"></div>
                     <h2 class="wideScreen">Tchat Télécom Saint-Étienne</h2>
                 </div>
             </header>
@@ -138,7 +139,7 @@
                                     <div class="form-group">
                                         <label for="icode" class="col-md-3 control-label">Confirmation</label>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control" name="passwd2" placeholder="Confirmation mot de passe">
+                                            <input type="text" class="form-control" name="passwd2" placeholder="Confirmation mot de passe" required>
                                         </div>
                                     </div>
 
