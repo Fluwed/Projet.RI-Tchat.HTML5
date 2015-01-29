@@ -87,7 +87,8 @@ html, body {
 .panel-body {
     padding-top: 0px;
     padding-right: 15px;
-    padding-left: 15px
+    padding-left: 15px;
+    padding-top: 0px
 }
 
 .input-group{
@@ -149,6 +150,10 @@ html, body {
 
 #panel-body_connexion{
     padding-top:25px
+}
+
+#panel-body_connexion{
+    padding-top:15px
 }
 
 #account{

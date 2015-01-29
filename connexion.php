@@ -91,7 +91,7 @@
                                 </div>
                             </div>
 
-                            <div class="panel-body" >
+                            <div class="panel-body" id="panel-body_connexion2">
                                 <form id="signupform" class="form-horizontal" role="form">
 
                                     <div class="form-group">
