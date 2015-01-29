@@ -11,6 +11,5 @@
         mysqli_free_result($result) or die(mysqli_error($link));
         mysqli_close($link) or die(mysqli_error($link));
     }
-    header("Location: http://www.google.com");
-    exit;
 ?>
+<input type="hidden" name="redirect-url" value="index.php">
