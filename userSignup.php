@@ -11,5 +11,7 @@
         $query = "INSERT INTO Auteurs (user, password) VALUES ('".$username."','".$passwd."')";
         echo $query;
         $result = mysqli_query($link, $query) or die(printf("Échec de la connexion SQL : %s\n", mysqli_connect_error()););
+        mysqli_free_result($result);
+        mysqli_close($link);
     }
 ?>
