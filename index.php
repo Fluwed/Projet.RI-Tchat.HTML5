@@ -62,7 +62,6 @@
                                                     echo "<button type='button' class='btn btn-primary btn-xs btn-block' id='bouton'>".$row["titre"]."</button>";
                                                 }
                                             }
-                                            mysqli_free_result($result) or die(mysqli_error($link));
                                             mysqli_close($link) or die(mysqli_error($link));
                                         }
                                     ?>

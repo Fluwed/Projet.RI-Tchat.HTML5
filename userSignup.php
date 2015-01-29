@@ -6,11 +6,10 @@
         header('Location: connexion.php');
     }
     else {
-        header('Location: index.php');
         require("connectdb.php");
         $query = "INSERT INTO Auteurs (user, password) VALUES ('".$username."','".$passwd."')";
         $result = mysqli_query($link, $query) or die(mysqli_error($link));
-        mysqli_free_result($result) or die(mysqli_error($link));
         mysqli_close($link) or die(mysqli_error($link));
+        header('Location: index.php');
     }
 ?>
