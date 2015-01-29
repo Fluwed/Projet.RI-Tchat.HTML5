@@ -7,8 +7,9 @@
         
     }
     else {
-        require("connectdb.php");
+        //require("connectdb.php");
         $query = "INSERT INTO Auteurs (user, password) VALUES ('".$username."','".$passwd."')";
-        $result = mysqli_query($link, $query) or die(printf("Échec de la connexion SQL : %s\n", mysqli_connect_error()););
+        echo $query;
+        //$result = mysqli_query($link, $query) or die(printf("Échec de la connexion SQL : %s\n", mysqli_connect_error()););
     }
 ?>
