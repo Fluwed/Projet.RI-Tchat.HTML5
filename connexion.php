@@ -1,3 +1,58 @@
+<?php
+    include('fonctions.php');
+    
+    $message = '';
+    
+    if(!empty($_GET)){
+        if($_GET['deconnexion'] == 1){
+            $_SESSION = array();
+            session_destroy();
+            $message = '<div class="alert alert-success col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2" role="alert"> Déconnexion réussie </div>';
+        }
+    }    
+    
+    if(!empty($_POST)){
+        if($_POST['formulaire'] == 'loginform'){
+            $dataUser = userLogin($_POST['username'], $_POST['password']);
+            if($dataUser){
+                session_start(); // nécessite de mettre l'option session.auto_start = 1 dans php.ini
+                $_SESSION['username'] = $_POST['username'];
+                $_SESSION['userId'] = $dataUser['userId'];
+                $_SESSION['isAdmin'] = $dataUser['isAdmin'];
+                header('Location: index.php');
+            }
+            else {
+                $message = '<div class="alert alert-danger col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2" role="alert"><strong>Erreur :</strong> Identifiants incorrects.</div>';
+            }
+        }
+        else if($_POST['formulaire'] == 'signupform'){
+            if($_POST['passwd'] == $_POST['passwd2']){
+                if(userSignup($_POST['username'], $_POST['passwd'])){
+                    $message = '<div class="alert alert-success col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2" role="alert">Utilisateur créé, vous pouvez maintenant vous connecter.</div>';
+                }
+                else {
+                    $message = '<div class="alert alert-danger col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2" role="alert"><strong>Erreur :</strong> Impossible de vous créer un compte.</div>';
+                }
+            }
+            else {
+                $message = '<div class="alert alert-danger col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2" role="alert"><strong>Erreur :</strong> Mots de passe différents.</div>';
+            }   
+        }
+        else {
+            // On ne fait rien
+        }
+    }
+    
+    // Selon si on est connecté ou pas, le label du menu change
+    if(isset($_SESSION) AND isset($_SESSION['username'])){
+        $label_connexion = 'Déconnexion';
+        $url_connexion = 'connexion.php?deconnexion=1';
+    }
+    else {
+        $label_connexion = 'Connexion';
+        $url_connexion = 'connexion.php';
+    }
+?>
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -11,7 +66,6 @@
         <link rel="shortcut icon" href="images/minilogo-TSE.png">
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/customize.css" rel="stylesheet">
-        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     </head>
 
     <body>
@@ -31,11 +85,12 @@
                     <div class="list-group">
                         <h3 class="list-group-item">Menu</h3>
                         <a href="index.php" class="list-group-item">Accueil</a>
-                        <a href="connexion.php" class="list-group-item active">Connexion</a>
+                        <a href="<?php echo $url_connexion; ?>" class="list-group-item active"><?php echo $label_connexion; ?></a>
                     </div>
                 </div>
 
                 <div class="col-sm-10">
+                    <?php echo $message; ?>
                     <div id="loginbox" class="mainbox col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
                         <div class="panel panel-info" >
                             <div class="panel-heading">
@@ -43,8 +98,9 @@
                             </div>
 
                             <div class="panel-body" id="panel-body_connexion">
-                                <form id="loginform" class="form-horizontal" action='userLogin.php' method='post'>
-
+                                <form id="loginform" class="form-horizontal" action='connexion.php' method='post'>
+                                    <input type="hidden" name="formulaire" value="loginform" />
+                                    
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                                         <input type="text" id="login-username" class="form-control" name="username" placeholder="Nom d'utilisateur" required>
@@ -73,7 +129,7 @@
                                         <div class="col-md-12 control">
                                             <div id="account">
                                                 Vous n'avez pas de compte ? 
-                                                <a href="#" onClick="$('#loginbox').hide(); $('#signupbox').show()">Inscrivez vous ici </a>
+                                                <a href="#" onClick="$('#loginbox').hide(); $('#signupbox').show(); $('.alert').hide()">Inscrivez-vous ici </a>
                                             </div>
                                         </div>
                                     </div>
@@ -92,8 +148,9 @@
                             </div>
 
                             <div class="panel-body" id="panel-body_connexion_2">
-                                <form id="signupform" class="form-horizontal" role="form" action='userSignup.php' method='post'>
-
+                                <form id="signupform" class="form-horizontal" role="form" action='connexion.php' method='post'>
+                                    <input type="hidden" name="formulaire" value="signupform" />
+                                     
                                     <div class="form-group">
                                         <label for="email" class="col-md-3 control-label">Nom d'utilisateur</label>
                                         <div class="col-md-9">
@@ -133,5 +190,8 @@
                 © 2014 Télécom Saint-Etienne
             </div>
         </footer>
+        
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="js/customize.js"></script>
     </body>
 </html>

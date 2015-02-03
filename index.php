@@ -1,3 +1,20 @@
+<?php
+    include('fonctions.php');
+    $message="";
+    
+    // Selon si on est connecté ou pas, le label du menu et la page change
+    if(isset($_SESSION) AND isset($_SESSION['username'])){
+        $listeSalons = getSalons();
+        $label_connexion = 'Déconnexion';
+        $url_connexion = 'connexion.php?deconnexion=1';
+    }
+    else {
+        $listeSalons = '<div class="alert alert-info col-md-12 col-sm-8" role="alert"> Veuillez vous connecter pour voir la liste des salons disponibles.</div>';
+        $label_connexion = 'Connexion';
+        $url_connexion = 'connexion.php';
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -32,39 +49,35 @@
                     <div class="list-group">
                         <h3 class="list-group-item">Menu</h3>
                         <a href="index.php" class="list-group-item active">Accueil</a>
-                        <a href="connexion.php" class="list-group-item">Connexion</a>
+                        <a href="<?php echo $url_connexion; ?>" class="list-group-item"><?php echo $label_connexion; ?></a>
                     </div>
                 </div>
 
                 <div class="col-sm-10"><br>
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h2 class="panel-title">Salons de discussion</h2>
+                            <h2 class="panel-title" id="titre_salon">Salons de discussion</h2>
                         </div>
-                        <div class="panel-body" id="">
+                        <div class="panel-body" id="conteneur">
                             <div class="row">
-                                <div class="col-md-10 col-md-offset-1">
-                                    <button type="button" class="btn btn-default btn-xs btn-block" id="bouton">Spectateur Global</button>
+                                <div class="col-md-10 col-md-offset-1" id="liste_salons">
+                                    <button type="button" class="btn btn-default btn-xs btn-block" id="spectateur">Spectateur Global</button>
                                     <?php
-                                        require("connectdb.php");
-                                        $query = "SELECT * FROM Salons";
-                                        if ($result = mysqli_query($link, $query)) {
-                                            while($row = mysqli_fetch_assoc($result)) {
-
-                                                echo "<button type='button' class='btn btn-danger btn-xs btn-block' id='bouton'>".$row["titre"]."</button>";
-                                                if ($row = mysqli_fetch_assoc($result)) {
-                                                    echo "<button type='button' class='btn btn-success btn-xs btn-block' id='bouton'>".$row["titre"]."</button>";
-                                                }
-                                                if ($row = mysqli_fetch_assoc($result)) {
-                                                    echo "<button type='button' class='btn btn-warning btn-xs btn-block' id='bouton'>".$row["titre"]."</button>";
-                                                }
-                                                if ($row = mysqli_fetch_assoc($result)) {
-                                                    echo "<button type='button' class='btn btn-primary btn-xs btn-block' id='bouton'>".$row["titre"]."</button>";
-                                                }
-                                            }
-                                            mysqli_close($link) or die(mysqli_error($link));
-                                        }
+                                        echo $listeSalons;
                                     ?>
+                                </div>
+                                <div class="col-md-10 col-md-offset-1" id="tchat">
+                                    <div class="col-md-12" id="zone_tchat"> 
+                                    </div>
+                                    <div class="col-md-12" id="zone_submit">
+                                        <div class="input-group input-group-lg">
+                                        <input type="text" id="messageUtilisateur" class="form-control" placeholder="Tapez votre texte ici ..." aria-describedby="sizing-addon1">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-default" type="button" id="boutonEnvoi">Envoyer</button>
+                                            </span>
+                                        </div>
+                                        <a href="index.php"><span class="btn btn-primary">Retour à la liste des salons</span></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -78,5 +91,8 @@
                 © 2014 Télécom Saint-Etienne
             </div>
         </footer>
+        
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="js/customize.js"></script>
     </body>
 </html>
