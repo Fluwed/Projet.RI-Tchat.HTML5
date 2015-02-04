@@ -40,12 +40,18 @@ $(document).ready(function(){
                 // On formate l'affichage
                 var html = formater_affichage(resultData);
                 
+                // To init variables to scroll bottom
+                var zone_tchat = document.getElementById("zone_tchat");
+                var scrollHeightOld = zone_tchat.scrollHeight;
+                
                 // On raffraichit la zone d'affichage des messages
                 $('#zone_tchat').html(html);
                 
-                // Scroll to bottom
-                var objDiv = document.getElementById("zone_tchat");
-                objDiv.scrollTop = objDiv.scrollHeight;
+                // To scroll bottom
+                var scrollHeight = zone_tchat.scrollHeight;
+                if (scrollHeight != scrollHeightOld) {
+                    zone_tchat.scrollTop = scrollHeight;
+                }
             });
             
             // On relance la fonction

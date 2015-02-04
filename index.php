@@ -71,7 +71,15 @@
                                     </div>
                                     <div class="col-md-12" id="zone_submit">
                                         <div class="input-group input-group-lg">
-                                        <input type="text" id="messageUtilisateur" class="form-control" placeholder="Tapez votre texte ici ..." aria-describedby="sizing-addon1">
+
+<script>
+    function textAreaAdjust(o) {
+        o.style.height = "1px";
+        o.style.height = (o.scrollHeight)+"px";
+    }
+</script>
+
+                                            <textarea type="text" onkeyup="textAreaAdjust(this)" id="messageUtilisateur" class="form-control" placeholder="Tapez votre texte ici ..."></textarea>
                                             <span class="input-group-btn">
                                                 <button class="btn btn-default" type="submit" id="boutonEnvoi">Envoyer</button>
                                             </span>
