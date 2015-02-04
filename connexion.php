@@ -46,11 +46,13 @@
     // Selon si on est connecté ou pas, le label du menu change
     if(isset($_SESSION) AND isset($_SESSION['username'])){
         $label_connexion = 'Déconnexion';
-        $url_connexion = 'connexion.php?deconnexion=1';
+        $display_connexion = 'style="display:none"';
+        $display_deconnexion = '';
     }
     else {
         $label_connexion = 'Connexion';
-        $url_connexion = 'connexion.php';
+        $display_connexion = '';
+        $display_deconnexion = 'style="display:none"';
     }
 ?>
 <!DOCTYPE html>
@@ -85,13 +87,13 @@
                     <div class="list-group">
                         <h3 class="list-group-item">Menu</h3>
                         <a href="index.php" class="list-group-item">Accueil</a>
-                        <a href="<?php echo $url_connexion; ?>" class="list-group-item active"><?php echo $label_connexion; ?></a>
+                        <a href="connexion.php" class="list-group-item active"><?php echo $label_connexion; ?></a>
                     </div>
                 </div>
 
-                <div class="col-sm-10">
+                <div class="col-sm-10" >
                     <?php echo $message; ?>
-                    <div id="loginbox" class="mainbox col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
+                    <div id="loginbox" class="mainbox col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2" <?php echo $display_connexion; ?>>
                         <div class="panel panel-info" >
                             <div class="panel-heading">
                                 <div class="panel-title">Connexion</div>
@@ -181,10 +183,27 @@
                             </div>
                         </div> 
                     </div> 
-                </div>  
+                    
+                    <div id="deconnexion" class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2" <?php echo $display_deconnexion; ?>>
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <div class="panel-title">Deconnexion</div>
+                            </div>
+
+                            <div class="panel-body" id="panel-body_deconnexion">
+                                <div class="col-md-6">
+                                    <p>Voulez-vous vraiment vous déconnecter ?</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="connexion.php?deconnexion=1"><span class="btn btn-primary" type="submit" id="deconnexion_oui">OUI</span></a>
+                                    <a href="index.php"><span class="btn btn-primary" type="submit" id="deconnexion_non">NON</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
         <footer class="page-footer">
             <div class="container">
                 © 2014 Télécom Saint-Etienne

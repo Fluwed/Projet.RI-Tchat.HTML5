@@ -228,6 +228,19 @@ html, body {
     margin-bottom: 20px;
 }
 
+#panel-body_deconnexion{
+    margin: 20px 0px 10px;
+}
+
+#deconnexion_oui{
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+#deconnexion{
+    margin-top:20px;
+}
+
 @media all and (max-width: 992px) {
     .wideScreen {
         display: none;
