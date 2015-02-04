@@ -1,16 +1,9 @@
-$(document).ready(function(){
-    $('#liste_salons > button').click(function() {
-        var titre = $(this).data('titre');
-        var idSalon = $(this).data('id-salon');
-        
-        $("#boutonEnvoi").data("id-salon", idSalon);
-        
-        $('#titre_salon').text(titre);
-        $('#liste_salons').fadeOut('fast');
-        $('#tchat').fadeIn('fast');
+function resizeTextArea(text) {
+    text.style.height = "1px";
+    text.style.height = (text.scrollHeight)+"px";
+}
 
-        charger(idSalon);
-    });
+$(document).ready(function(){
     
     function formater_date(date){
         var tableauDate = date.split(/[- :]/);
@@ -71,17 +64,34 @@ $(document).ready(function(){
         });
     }
     
-    $('#boutonEnvoi').click(function() {  
+
+    
+    $('#liste_salons > button').click(function() {
+        var titre = $(this).data('titre');
+        var idSalon = $(this).data('id-salon');
+        
+        $("#boutonEnvoi").data("id-salon", idSalon);
+        
+        $('#titre_salon').text(titre);
+        $('#liste_salons').fadeOut('fast');
+        $('#tchat').fadeIn('fast');
+
+        charger(idSalon);
+    });
+    
+    $('#boutonEnvoi').click(function() {
         var texte = $('#messageUtilisateur').val();
         var idSalon = $(this).data('id-salon');
         envoyerMessage(texte, idSalon);
         $('#messageUtilisateur').val('');
     });
     
-    $("input").keypress(function(event) {
-        if (event.which == 13) {
-            event.preventDefault();
-            $("#boutonEnvoi").click();
+    
+    $("#messageUtilisateur").keypress(function(event) {
+        if(event.which == '13') {
+            $('#boutonEnvoi').click();
+            return false;
         }
     });
+    
 });

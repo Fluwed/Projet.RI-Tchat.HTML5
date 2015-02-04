@@ -91,11 +91,11 @@ html, body {
     padding-bottom: 0px
 }
 
-.input-group{
+.input-group {
     margin-bottom: 25px
 }
 
-.form-group{
+.form-group {
     margin-top:10px
 }
 
@@ -119,26 +119,26 @@ html, body {
     padding-left: 0px;
 }
 
-.alert{
+.alert {
     margin-top: 20px;
     text-align: center;
 }
 
-.alert-info{
+.alert-info {
     background-color: #337AB7;
     border-color: #337AB7;
     color:white;
     font-size: 18px;
 }
 
-.alert-danger{
+.alert-danger {
     background-color: #D9534F;
     border-color: #D9534F;
     color:white;
     font-size: 18px;
 }
 
-.alert-success{
+.alert-success {
     background-color: #5CB85C;
     border-color: #5CB85C;
     color:white;
@@ -150,46 +150,46 @@ html, body {
     overflow:hidden;
 }
 
-#tchat{
+#tchat {
     display: none;
 }
 
-#loginbox{
+#loginbox {
     margin-top:20px;
 }
 
-#signupbox  {
+#signupbox {
     display:none; 
     margin-top:20px;
 }
 
-#connect{
+#connect {
     float:right;
     font-size: 75%;
     position: relative; 
     top:-15px;
 }
 
-#inscription{
+#inscription {
     float:right;
     font-size: 85%; 
     position: relative; 
     top:-10px;
 }
 
-#signinlink{
+#signinlink {
     color:white;
 }
 
-#panel-body_connexion{
+#panel-body_connexion {
     padding-top:25px;
 }
 
-#panel-body_connexion_2{
+#panel-body_connexion_2 {
     padding-top:15px;
 }
 
-#account{
+#account {
     border-top: 1px solid#337AB7;
     padding-top:15px; 
     font-size:85%;
@@ -211,7 +211,7 @@ html, body {
     text-align:center;
 }
 
-#smallTitle{
+#smallTitle {
     text-align:center;
     color: gray;
 }
@@ -228,16 +228,16 @@ html, body {
     margin-bottom: 20px;
 }
 
-#panel-body_deconnexion{
+#panel-body_deconnexion {
     margin: 20px 0px 10px;
 }
 
-#deconnexion_oui{
+#deconnexion_oui {
     margin-right: 15px;
     margin-left: 15px;
 }
 
-#deconnexion{
+#deconnexion {
     margin-top:20px;
 }
 

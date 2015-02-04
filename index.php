@@ -68,15 +68,7 @@
                                     </div>
                                     <div class="col-md-12" id="zone_submit">
                                         <div class="input-group input-group-lg">
-
-<script>
-    function textAreaAdjust(o) {
-        o.style.height = "1px";
-        o.style.height = (o.scrollHeight)+"px";
-    }
-</script>
-
-                                            <textarea type="text" onkeyup="textAreaAdjust(this)" id="messageUtilisateur" class="form-control" placeholder="Tapez votre texte ici ..."></textarea>
+                                            <textarea type="text" onkeypress="resizeTextArea(this)" id="messageUtilisateur" class="form-control" placeholder="Tapez votre texte ici ..."></textarea>
                                             <span class="input-group-btn">
                                                 <button class="btn btn-default" type="submit" id="boutonEnvoi">Envoyer</button>
                                             </span>
@@ -96,7 +88,7 @@
                 © 2014 Télécom Saint-Etienne
             </div>
         </footer>
-        
+
         <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
         <script type="text/javascript" src="js/customize.js"></script>
     </body>
