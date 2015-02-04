@@ -6,12 +6,10 @@
     if(isset($_SESSION) AND isset($_SESSION['username'])){
         $listeSalons = getSalons();
         $label_connexion = 'Déconnexion';
-        $url_connexion = 'connexion.php?deconnexion=1';
     }
     else {
         $listeSalons = '<div class="alert alert-info col-md-12 col-sm-8" role="alert"> Veuillez vous connecter pour voir la liste des salons disponibles.</div>';
         $label_connexion = 'Connexion';
-        $url_connexion = 'connexion.php';
     }
 ?>
 
@@ -33,7 +31,6 @@
     <body>
 
         <div id="wrap">
-
             <header class="page-header">
                 <div class="container">
                     <div class="logo"></div>
@@ -49,7 +46,7 @@
                     <div class="list-group">
                         <h3 class="list-group-item">Menu</h3>
                         <a href="index.php" class="list-group-item active">Accueil</a>
-                        <a href="<?php echo $url_connexion; ?>" class="list-group-item"><?php echo $label_connexion; ?></a>
+                        <a href="connexion.php" class="list-group-item"><?php echo $label_connexion; ?></a>
                     </div>
                 </div>
 
