@@ -145,6 +145,12 @@ html, body {
     font-size: 18px;
 }
 
+#zone_tchat {
+    height: 500px;
+    overflow-x:hidden;
+    overflow-y: auto;
+}
+
 #tchat{
     display: none;
 }

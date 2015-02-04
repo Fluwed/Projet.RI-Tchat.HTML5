@@ -1,6 +1,6 @@
 $(document).ready(function(){
-	$('#liste_salons > button').click(function() {
-		var titre = $(this).data('titre');
+    $('#liste_salons > button').click(function() {
+        var titre = $(this).data('titre');
         var idSalon = $(this).data('id-salon');
         
         $("#boutonEnvoi").data("id-salon", idSalon);
@@ -10,7 +10,7 @@ $(document).ready(function(){
         $('#tchat').fadeIn('fast');
 
         charger(idSalon);
-	});
+    });
     
     function formater_date(date){
         var tableauDate = date.split(/[- :]/);
@@ -23,7 +23,7 @@ $(document).ready(function(){
         var objet_json = JSON.parse(data);
         var html = '';
         for(i=0; i<objet_json.length; i++){
-            html += '<p><strong>'+objet_json[i]["user"]+' à '+formater_date(objet_json[i]["date"])+' :</strong><br />'+objet_json[i]["texte"]+'<p>';
+            html += '<p><strong>'+objet_json[i]["user"]+' à '+formater_date(objet_json[i]["date"])+' :</strong><br />'+objet_json[i]["texte"]+'</p>';
         }
         return html;
     }
@@ -42,6 +42,10 @@ $(document).ready(function(){
                 
                 // On raffraichit la zone d'affichage des messages
                 $('#zone_tchat').html(html);
+                
+                // Scroll to bottom
+                var objDiv = document.getElementById("zone_tchat");
+                objDiv.scrollTop = objDiv.scrollHeight;
             });
             
             // On relance la fonction
@@ -66,5 +70,12 @@ $(document).ready(function(){
         var idSalon = $(this).data('id-salon');
         envoyerMessage(texte, idSalon);
         $('#messageUtilisateur').val('');
-	});
+    });
+    
+    $("input").keypress(function(event) {
+        if (event.which == 13) {
+            event.preventDefault();
+            $("#boutonEnvoi").click();
+        }
+    });
 });

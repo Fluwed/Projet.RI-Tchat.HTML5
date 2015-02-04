@@ -73,7 +73,7 @@
                                         <div class="input-group input-group-lg">
                                         <input type="text" id="messageUtilisateur" class="form-control" placeholder="Tapez votre texte ici ..." aria-describedby="sizing-addon1">
                                             <span class="input-group-btn">
-                                                <button class="btn btn-default" type="button" id="boutonEnvoi">Envoyer</button>
+                                                <button class="btn btn-default" type="submit" id="boutonEnvoi">Envoyer</button>
                                             </span>
                                         </div>
                                         <a href="index.php"><span class="btn btn-primary">Retour à la liste des salons</span></a>
