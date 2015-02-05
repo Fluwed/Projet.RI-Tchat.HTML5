@@ -3,12 +3,20 @@
     $message="";
     
     // Selon si on est connecté ou pas, le label du menu et la page change
-    if(isset($_SESSION) AND isset($_SESSION['username'])){
+    if(isset($_SESSION) AND isset($_SESSION['username']) AND isset($_SESSION['isAdmin'])) {
+        if ($_SESSION['isAdmin']==1) {
+            $display_admin = '';
+            $display_user = 'style="display:none"';
+        }
+        else {
+            $display_user = '';
+            $display_admin = 'style="display:none"';
+        }
         $listeSalons = getSalons();
         $label_connexion = 'Déconnexion';
     }
     else {
-        $listeSalons = '<div class="alert alert-info col-md-12 col-sm-8" role="alert"> Veuillez vous connecter pour voir la liste des salons disponibles.</div>';
+        $listeSalons = '<div class="alert alert-info col-md-12" role="alert"> Veuillez vous connecter pour voir la liste des salons disponibles.</div>';
         $label_connexion = 'Connexion';
     }
 ?>
@@ -64,9 +72,9 @@
                                     ?>
                                 </div>
                                 <div class="col-md-10 col-md-offset-1" id="tchat">
-                                    <div class="col-md-12" id="zone_tchat"> 
+                                    <div class="col-md-12" id="zone_tchat" <?php echo $display_user; ?>>
                                     </div>
-                                    <div class="col-md-12" id="zone_submit">
+                                    <div class="col-md-12" id="zone_submit" <?php echo $display_user; ?>>
                                         <div class="input-group input-group-lg">
                                             <textarea type="text" onkeypress="resizeTextArea(this)" id="messageUtilisateur" class="form-control" placeholder="Tapez votre texte ici ..."></textarea>
                                             <span class="input-group-btn">
@@ -74,6 +82,8 @@
                                             </span>
                                         </div>
                                         <a href="index.php"><span class="btn btn-primary">Retour à la liste des salons</span></a>
+                                    </div>
+                                    <div class="col-md-12" id="zone_tchat_admin" <?php echo $display_admin; ?>>
                                     </div>
                                 </div>
                             </div>

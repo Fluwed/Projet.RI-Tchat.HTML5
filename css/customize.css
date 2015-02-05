@@ -71,6 +71,7 @@ html, body {
 }
 
 .list-group-item {
+    padding: 10px 0px;
     border: 1px solid #337AB7;
 }
 
@@ -216,11 +217,17 @@ html, body {
     color: gray;
 }
 
-
 #zone_tchat {
     margin: 20px 0;
     height: 500px;
-    overflow-x:hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#zone_tchat_admin {
+    margin: 20px 0;
+    height: 500px;
+    overflow-x: hidden;
     overflow-y: auto;
 }
 
@@ -245,16 +252,18 @@ html, body {
     .wideScreen {
         display: none;
     }
+
+    #zone_tchat {
+        height:200px;
+    }
+
+    #zone_tchat_admin {
+        height: 200px;
+    }
 }
 
 @media all and (min-width: 992px) {
     .smallScreen {
-        display: none;
-    }
-}
-
-@media all and (max-width: 450px) {
-    .logo {
         display: none;
     }
 }
@@ -266,6 +275,10 @@ html, body {
 }
 
 @media all and (max-width: 450px) {
+    .logo {
+        display: none;
+    }
+
     .btn {
         font-size: 14px;
     }

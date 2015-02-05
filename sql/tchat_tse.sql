@@ -22,8 +22,8 @@ CREATE TABLE IF NOT EXISTS `auteurs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user` varchar(32) NOT NULL,
   `password` varchar(128) NOT NULL,
-  `isAdmin` tinyint(1) DEFAULT NULL,
-  `dateInscription` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `isAdmin` tinyint(1) DEFAULT '0',
+  `dateInscription` datetime(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_UNIQUE` (`user`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
@@ -33,9 +33,9 @@ CREATE TABLE IF NOT EXISTS `auteurs` (
 --
 
 INSERT INTO `auteurs` (`id`, `user`, `password`, `isAdmin`, `dateInscription`) VALUES
-(1, 'Admin', 'Admin', 1, '2015-02-02 14:48:51'),
-(2, 'Kevin', 'Kevin', 0, '2015-02-02 14:48:51'),
-(3, 'Paul', 'Paul', 0, '2015-02-02 14:48:51');
+(1, 'Admin', 'Admin', 1, '2015-02-02 14:48:51.000'),
+(2, 'Kevin', 'Kevin', 0, '2015-02-02 14:48:51.000'),
+(3, 'Paul', 'Paul', 0, '2015-02-02 14:48:51.000');
 
 -- --------------------------------------------------------
 
@@ -46,8 +46,8 @@ INSERT INTO `auteurs` (`id`, `user`, `password`, `isAdmin`, `dateInscription`) V
 CREATE TABLE IF NOT EXISTS `salons` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `titre` varchar(30) NOT NULL,
-  `dateOuverture` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `dateFermeture` datetime DEFAULT NULL,
+  `dateOuverture` datetime(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  `dateFermeture` datetime(3) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
@@ -56,10 +56,10 @@ CREATE TABLE IF NOT EXISTS `salons` (
 --
 
 INSERT INTO `salons` (`id`, `titre`, `dateOuverture`, `dateFermeture`) VALUES
-(1, 'L''Enseignement et les Parcours', '2015-01-01 00:00:00', NULL),
-(2, 'Le Logement à Saint-Étienne', '2015-01-01 00:00:00', NULL),
-(3, 'La Ville de Saint-Étienne', '2015-01-01 00:00:00', NULL),
-(4, 'La Vie Étudiante', '2015-01-01 00:00:00', NULL);
+(1, 'L''Enseignement et les Parcours', '2015-01-01 00:00:00.000', NULL),
+(2, 'Le Logement à Saint-Étienne', '2015-01-01 00:00:00.000', NULL),
+(3, 'La Ville de Saint-Étienne', '2015-01-01 00:00:00.000', NULL),
+(4, 'La Vie Étudiante', '2015-01-01 00:00:00.000', NULL);
 
 -- --------------------------------------------------------
 
@@ -70,12 +70,13 @@ INSERT INTO `salons` (`id`, `titre`, `dateOuverture`, `dateFermeture`) VALUES
 CREATE TABLE IF NOT EXISTS `messages` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `texte` tinytext NOT NULL,
-  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date` datetime(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
   `idSalon` int(11) NOT NULL,
   `idAuteur` int(11) NOT NULL,
+  `isResponded` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `fk_messages_salons_idx` (`idSalon`),
-  KEY `fk_messages_auteurs1_idx` (`idAuteur`)
+  KEY `fk_messages_auteurs_idx` (`idAuteur`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -85,5 +86,5 @@ CREATE TABLE IF NOT EXISTS `messages` (
 --
 
 ALTER TABLE `messages`
-  ADD CONSTRAINT `fk_messages_auteurs1` FOREIGN KEY (`idAuteur`) REFERENCES `auteurs` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_messages_auteurs` FOREIGN KEY (`idAuteur`) REFERENCES `auteurs` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_messages_salons` FOREIGN KEY (`idSalon`) REFERENCES `salons` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;

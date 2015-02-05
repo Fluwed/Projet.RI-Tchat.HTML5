@@ -1,6 +1,5 @@
 <?php
     include('fonctions.php');
-    
     $message = '';
     
     if(!empty($_GET)){

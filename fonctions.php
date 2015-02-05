@@ -2,6 +2,13 @@
     require_once("connectdb.php");
     
     function getSalons(){
+        $adminOutput = '';
+        if (isset($_SESSION) AND isset($_SESSION['isAdmin'])) {
+            $adminOutput = '" data-is-admin="'.$_SESSION['isAdmin'].'"';
+        }
+        else {
+            $adminOutput = '" data-is-admin="0"';
+        }
         if($pdo = connect_to_database()){
             try{
                 $query = $pdo->prepare('SELECT * FROM salons');
@@ -17,7 +24,7 @@
                         if($index > 3){
                             $index = 0;
                         }
-                        $html .= '<button type="button" id="salon_'.$salon["id"].'" data-id-salon="'.$salon["id"].'" data-titre="'.$salon["titre"].'" class="btn btn-'.$tabCouleurs[$index].' btn-xs btn-block">'.$salon["titre"].'</button>';
+                        $html .= '<button type="button" id="salon_'.$salon["id"].'" data-id-salon="'.$salon["id"].'" data-titre="'.$salon["titre"].$adminOutput.' class="btn btn-'.$tabCouleurs[$index].' btn-xs btn-block">'.$salon["titre"].'</button>';
                         $index++;
                     }
                     return $html;
