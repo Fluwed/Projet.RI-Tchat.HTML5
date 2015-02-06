@@ -108,7 +108,9 @@ $(document).ready(function(){
         var objet_json = JSON.parse(data);
         var html = '';
         for(i=0; i<objet_json.length; i++){
-            html += '<p><strong>Message de '+objet_json[i]["user"]+' il y a '+formater_date_admin(objet_json[i]["date"])+' :</strong><br />'+objet_json[i]["texte"]+'</p>';
+            html += '<p id="adminDisplay"><strong>Message de '+objet_json[i]["user"]+' il y a '+formater_date_admin(objet_json[i]["date"])+' :</strong><br/>'
+            +'<span class="btn btn-primary btn-sm" type="submit" onClick="hide("#zone_tchat_admin")" id="repondre">Repondre</span>'+' - '+'<a href="#">Passer</a>'+' - '+'<a href="#">Supprimer</a>'+'<br />'
+            +objet_json[i]["texte"]+'</p>';
         }
         return html;
     }
