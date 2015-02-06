@@ -1,6 +1,7 @@
 <?php
     include('fonctions.php');
     $message = '';
+    $display_admin = 'style="display:none"';
     
     if (!empty($_GET)) {
         if ($_GET['deconnexion'] == 1) {
@@ -56,6 +57,9 @@
     
     // Selon si on est connecté ou pas, le label du menu change
     if(isset($_SESSION) AND isset($_SESSION['username'])){
+        if ($_SESSION['isAdmin']==1) {
+            $display_admin = '';
+        }
         $label_connexion = 'Déconnexion';
         $display_connexion = 'style="display:none"';
         $display_deconnexion = '';
@@ -98,6 +102,9 @@
                     <div class="list-group">
                         <h3 class="list-group-item">Menu</h3>
                         <a href="index.php" class="list-group-item">Accueil</a>
+                                                <a href="ajout_salon.php" class="list-group-item" <?php echo $display_admin; ?>> Ajouter un salon</a>
+                        <a href="ajout_admin.php" class="list-group-item" <?php echo $display_admin; ?>> Ajouter un admin</a>
+                        <a href="suppression_utilisateur.php" class="list-group-item" <?php echo $display_admin; ?>> Supprimer un utilisateur</a>
                         <a href="connexion.php" class="list-group-item active"><?php echo $label_connexion; ?></a>
                     </div>
                 </div>

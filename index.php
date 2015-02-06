@@ -52,6 +52,9 @@
                     <div class="list-group">
                         <h3 class="list-group-item">Menu</h3>
                         <a href="index.php" class="list-group-item active">Accueil</a>
+                        <a href="ajout_salon.php" class="list-group-item" <?php echo $display_admin; ?>> Ajouter un salon</a>
+                        <a href="ajout_admin.php" class="list-group-item" <?php echo $display_admin; ?>> Ajouter un admin</a>
+                        <a href="suppression_utilisateur.php" class="list-group-item" <?php echo $display_admin; ?>> Supprimer un utilisateur</a>
                         <a href="connexion.php" class="list-group-item"><?php echo $label_connexion; ?></a>
                     </div>
                 </div>
