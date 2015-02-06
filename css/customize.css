@@ -248,6 +248,15 @@ html, body {
     margin-top:20px;
 }
 
+
+
+#adminDisplay{
+    border-bottom: 1px solid #D5DBE1;
+    padding-bottom : 15px;
+    line-height : 1.9;
+}
+
+
 @media all and (max-width: 992px) {
     .wideScreen {
         display: none;
