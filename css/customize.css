@@ -146,6 +146,10 @@ html, body {
     font-size: 18px;
 }
 
+.btn-block+.btn-block {
+    margin-top: 35px;
+}
+
 #messageUtilisateur {
     resize: none;
     overflow:hidden;

@@ -1,17 +1,16 @@
 <?php
     include('fonctions.php');
-    $message="";
+    
+    $display_user = '';
+    $display_admin = 'style="display:none"';
     
     // Selon si on est connecté ou pas, le label du menu et la page change
     if(isset($_SESSION) AND isset($_SESSION['username']) AND isset($_SESSION['isAdmin'])) {
         if ($_SESSION['isAdmin']==1) {
-            $display_admin = '';
             $display_user = 'style="display:none"';
+            $display_admin = '';
         }
-        else {
-            $display_user = '';
-            $display_admin = 'style="display:none"';
-        }
+        
         $listeSalons = getSalons();
         $label_connexion = 'Déconnexion';
     }
@@ -65,7 +64,7 @@
                         <div class="panel-body" id="conteneur">
                             <div class="row">
                                 <div class="col-md-10 col-md-offset-1" id="liste_salons">
-                                    <button type="button" class="btn btn-default btn-xs btn-block" id="spectateur">Spectateur Global</button>
+                                    <button type="button" id="salon_0" data-id-salon="0" data-titre="Spectateur global" data-is-admin="0" class="btn btn-default btn-xs btn-block" <?php echo $display_user; ?>>Spectateur global</button>
                                     <?php
                                         echo $listeSalons;
                                     ?>

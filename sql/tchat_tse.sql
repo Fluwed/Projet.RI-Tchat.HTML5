@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS `auteurs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user` varchar(32) NOT NULL,
   `password` varchar(128) NOT NULL,
-  `isAdmin` tinyint(1) DEFAULT '0',
+  `isAdmin` tinyint(1) NOT NULL DEFAULT '0',
   `dateInscription` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_UNIQUE` (`user`)
@@ -33,9 +33,9 @@ CREATE TABLE IF NOT EXISTS `auteurs` (
 --
 
 INSERT INTO `auteurs` (`id`, `user`, `password`, `isAdmin`, `dateInscription`) VALUES
-(1, 'Admin', 'Admin', 1, '2015-02-02 14:48:51.000000'),
-(2, 'Kevin', 'Kevin', 0, '2015-02-02 14:48:51.000000'),
-(3, 'Paul', 'Paul', 0, '2015-02-02 14:48:51.000000');
+(1, 'Admin', '$2y$10$6GmHWbyaI/x4RrK7P9vlIer5/AhPi6FcrlAUpYc1N7CVe9F7SH72m', 1, '2015-02-06 11:36:39.850387'),
+(2, 'Paul', '$2y$10$3CNMRrig12E4jdFOjqkfzeuSoaMSwWuzsB3BYzbMEolAoPAiF3l6e', 0, '2015-02-06 11:53:34.156755'),
+(3, 'Kevin', '$2y$10$/GSYRouSM2HeyZIQ1oN6guKuAuZ8iPS5qJok8Sq4b2/n4gw/CvZe2', 0, '2015-02-06 11:54:13.789153');
 
 -- --------------------------------------------------------
 
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `date` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
   `idSalon` int(11) NOT NULL,
   `idAuteur` int(11) NOT NULL,
-  `isResponded` tinyint(1) DEFAULT '0',
+  `isResponded` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `fk_messages_salons_idx` (`idSalon`),
   KEY `fk_messages_auteurs_idx` (`idAuteur`)

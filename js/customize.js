@@ -3,13 +3,14 @@ function resizeTextArea(text) {
     text.style.height = (text.scrollHeight)+"px";
 }
 
+
 $(document).ready(function(){
-    
+
     function formater_date(date){
         var tableauDate = date.split(/[- :]/);
         return tableauDate[3]+':'+tableauDate[4];
     }
-    
+
     function formater_affichage(data){
         var objet_json = JSON.parse(data);
         var html = '';
@@ -18,7 +19,7 @@ $(document).ready(function(){
         }
         return html;
     }
-    
+
     function charger(salon){
         setTimeout( function(){
             // On récupère les messages et auteurs dans la bas
@@ -57,7 +58,7 @@ $(document).ready(function(){
         var msPerDay = msPerHour * 24;
         var msPerMonth = msPerDay * 30;
         var msPerYear = msPerDay * 365;
-
+        
         var tableauDate = date.split(/[- :.]/);
         var msgDate = new Date(tableauDate[0], tableauDate[1]-1, tableauDate[2], tableauDate[3], tableauDate[4], tableauDate[5], Math.trunc(tableauDate[6]/1000));
         var diffTime = Date.now() - msgDate.getTime();
@@ -112,7 +113,7 @@ $(document).ready(function(){
         }
         return html;
     }
-    
+
     function charger_admin(salon){
         setTimeout( function(){
             // On récupère les messages et auteurs dans la base
@@ -155,40 +156,37 @@ $(document).ready(function(){
             console.log(erreur);
         });
     }
-    
-    
+
     $('#liste_salons > button').click(function() {
         var titre = $(this).data('titre');
         var idSalon = $(this).data('id-salon');
         var isAdmin = $(this).data('is-admin');
-        
-        $("#boutonEnvoi").data("id-salon", idSalon);
         
         $('#titre_salon').text(titre);
         $('#liste_salons').fadeOut('fast');
         $('#tchat').fadeIn('fast');
         
         if (isAdmin == 0) {
+            $("#boutonEnvoi").data("id-salon", idSalon);
             charger(idSalon);
         }
         else {
             charger_admin(idSalon);
         }
     });
-    
+
     $('#boutonEnvoi').click(function() {
         var texte = $('#messageUtilisateur').val();
         var idSalon = $(this).data('id-salon');
         envoyerMessage(texte, idSalon);
         $('#messageUtilisateur').val('');
     });
-    
-    
+
     $("#messageUtilisateur").keypress(function(event) {
         if(event.which == '13') {
             $('#boutonEnvoi').click();
             return false;
         }
     });
-    
+
 });

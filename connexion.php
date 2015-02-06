@@ -2,18 +2,18 @@
     include('fonctions.php');
     $message = '';
     
-    if(!empty($_GET)){
-        if($_GET['deconnexion'] == 1){
+    if (!empty($_GET)) {
+        if ($_GET['deconnexion'] == 1) {
             $_SESSION = array();
             session_destroy();
             $message = '<div class="alert alert-success col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2" role="alert"> Déconnexion réussie </div>';
         }
-    }    
+    }
     
-    if(!empty($_POST)){
-        if($_POST['formulaire'] == 'loginform'){
+    if (!empty($_POST)) {
+        if ($_POST['formulaire'] == 'loginform') {
             $dataUser = userLogin($_POST['username'], $_POST['password']);
-            if($dataUser){
+            if ($dataUser) {
                 session_start(); // nécessite de mettre l'option session.auto_start = 1 dans php.ini
                 $_SESSION['username'] = $_POST['username'];
                 $_SESSION['userId'] = $dataUser['userId'];
@@ -21,24 +21,36 @@
                 header('Location: index.php');
             }
             else {
-                $message = '<div class="alert alert-danger col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2" role="alert"><strong>Erreur :</strong> Identifiants incorrects.</div>';
+                $message = '<div class="alert alert-danger col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2" role="alert"><strong>Erreur :</strong> Identifiants incorrects. Si vous êtes sûr de vos identifiants, réessayez plus tard.</div>';
             }
         }
-        else if($_POST['formulaire'] == 'signupform'){
-            if($_POST['passwd'] == $_POST['passwd2']){
-                if(userSignup($_POST['username'], $_POST['passwd'])){
-                    $message = '<div class="alert alert-success col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2" role="alert">Utilisateur créé, vous pouvez maintenant vous connecter.</div>';
+        else {
+            if ($_POST['formulaire'] == 'signupform') {
+                if ($_POST['passwd'] == $_POST['passwd2']) {
+                    if (strlen($_POST['passwd']) >= 6) {
+                        if (userTestExistence($_POST['username'])) {
+                            $message = '<div class="alert alert-danger col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2" role="alert"><strong>Erreur :</strong> L\'utilisateur existe déjà.</div>';
+                        }
+                        else {
+                            if (userSignup($_POST['username'], $_POST['passwd'])) {
+                                $message = '<div class="alert alert-success col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2" role="alert">Utilisateur créé, vous pouvez maintenant vous connecter.</div>';
+                            }
+                            else {
+                                $message = '<div class="alert alert-danger col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2" role="alert"><strong>Erreur :</strong> Impossible de vous créer un compte, réessayez plus tard.</div>';
+                            }
+                        }
+                    }
+                    else {
+                        $message = '<div class="alert alert-danger col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2" role="alert"><strong>Erreur :</strong> Le mot de passe est trop court (6 caractères minimum).</div>';
+                    }
                 }
                 else {
-                    $message = '<div class="alert alert-danger col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2" role="alert"><strong>Erreur :</strong> Impossible de vous créer un compte.</div>';
+                    $message = '<div class="alert alert-danger col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2" role="alert"><strong>Erreur :</strong> Mots de passe différents.</div>';
                 }
             }
             else {
-                $message = '<div class="alert alert-danger col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2" role="alert"><strong>Erreur :</strong> Mots de passe différents.</div>';
-            }   
-        }
-        else {
-            // On ne fait rien
+                // On ne fait rien
+            }
         }
     }
     
@@ -110,14 +122,6 @@
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                                         <input id="login-password" type="password" class="form-control" name="password" placeholder="Mot de passe" required>
-                                    </div>
-
-                                    <div class="input-group">
-                                         <div class="checkbox">
-                                             <label>
-                                                  <input id="login-remember" type="checkbox" name="remember" value="1"> Rester connecté </input>
-                                              </label>
-                                          </div>
                                     </div>
 
                                     <div class="form-group">
