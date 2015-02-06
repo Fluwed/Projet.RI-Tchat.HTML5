@@ -3,7 +3,6 @@ function resizeTextArea(text) {
     text.style.height = (text.scrollHeight)+"px";
 }
 
-
 $(document).ready(function(){
 
     function formater_date(date){
@@ -182,7 +181,7 @@ $(document).ready(function(){
         $('#messageUtilisateur').val('');
     });
 
-    $("#messageUtilisateur").keypress(function(event) {
+    $('#messageUtilisateur').keypress(function(event) {
         if(event.which == '13') {
             $('#boutonEnvoi').click();
             return false;

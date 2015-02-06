@@ -73,13 +73,12 @@
                                     <div class="col-md-12" id="zone_tchat" <?php echo $display_user; ?>>
                                     </div>
                                     <div class="col-md-12" id="zone_submit" <?php echo $display_user; ?>>
-                                        <div class="input-group input-group-lg">
-                                            <textarea type="text" onkeypress="resizeTextArea(this)" id="messageUtilisateur" class="form-control" placeholder="Tapez votre texte ici ..."></textarea>
-                                            <span class="input-group-btn">
-                                                <button class="btn btn-default" type="submit" id="boutonEnvoi">Envoyer</button>
-                                            </span>
+                                        <div class="col-md-11">
+                                            <textarea type="text" onkeydown="resizeTextArea(this)" onclick="resizeTextArea(this)" onkeyup="resizeTextArea(this)" id="messageUtilisateur" class="form-control" placeholder="Tapez votre texte ici ..."></textarea>
                                         </div>
-                                        <a href="index.php"><span class="btn btn-primary">Retour à la liste des salons</span></a>
+                                        <div class="col-md-1">
+                                            <button class="btn btn-default" type="submit" id="boutonEnvoi">Envoyer</button>
+                                        </div>
                                     </div>
                                     <div class="col-md-12" id="zone_tchat_admin" <?php echo $display_admin; ?>>
                                     </div>
@@ -97,7 +96,8 @@
             </div>
         </footer>
 
-        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/customize.js"></script>
     </body>
 </html>
