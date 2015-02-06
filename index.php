@@ -52,6 +52,9 @@
                     <div class="list-group">
                         <h3 class="list-group-item">Menu</h3>
                         <a href="index.php" class="list-group-item active">Accueil</a>
+                        <a href="ajout_salon.php" class="list-group-item" <?php echo $display_admin; ?>> Ajouter un salon</a>
+                        <a href="ajout_admin.php" class="list-group-item" <?php echo $display_admin; ?>> Ajouter un admin</a>
+                        <a href="suppression_utilisateur.php" class="list-group-item" <?php echo $display_admin; ?>> Supprimer un utilisateur</a>
                         <a href="connexion.php" class="list-group-item"><?php echo $label_connexion; ?></a>
                     </div>
                 </div>
@@ -73,10 +76,10 @@
                                     <div class="col-md-12" id="zone_tchat" <?php echo $display_user; ?>>
                                     </div>
                                     <div class="col-md-12" id="zone_submit" <?php echo $display_user; ?>>
-                                        <div class="col-md-11">
+                                        <div class="col-md-10">
                                             <textarea type="text" onkeydown="resizeTextArea(this)" onclick="resizeTextArea(this)" onkeyup="resizeTextArea(this)" id="messageUtilisateur" class="form-control" placeholder="Tapez votre texte ici ..."></textarea>
                                         </div>
-                                        <div class="col-md-1">
+                                        <div class="col-md-2">
                                             <button class="btn btn-default" type="submit" id="boutonEnvoi">Envoyer</button>
                                         </div>
                                     </div>
