@@ -150,7 +150,38 @@ html, body {
     margin-top: 35px;
 }
 
+.modalDialog {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+
+.modalDialog:target {
+    opacity:1;
+    pointer-events: auto;
+}
+
+.modalDialog > div {
+    margin-top: 15%;
+    background: #fff;
+    padding-bottom: 10px;
+}
+
 #messageUtilisateur {
+    resize: none;
+    overflow: hidden;
+}
+
+#messageAdmin {
     resize: none;
     overflow: hidden;
 }
@@ -260,11 +291,22 @@ html, body {
     border-radius: 6px;
 }
 
+#boutonEnvoiAdmin {
+    height: 46px;
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.33;
+    border-radius: 6px;
+    margin: 15px 0px;
+}
+
 #adminDisplay {
     border-bottom: 1px solid #D5DBE1;
     padding-bottom : 15px;
     line-height : 1.9;
 }
+
+
 
 @media all and (max-width: 992px) {
     .wideScreen {
@@ -280,7 +322,12 @@ html, body {
     }
 
     #boutonEnvoi {
-        margin-top: 15px;
+        margin: 15px 0px;
+        float: right;
+    }
+
+    .modalDialog > div {
+        margin-top: 30%;
     }
 }
 
@@ -303,5 +350,15 @@ html, body {
 
     .btn {
         font-size: 14px;
+    }
+
+    .modalDialog > div {
+        margin-top: 70%;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .modalDialog > div {
+        padding-top: 10px;
     }
 }

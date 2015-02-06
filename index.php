@@ -90,6 +90,47 @@
             </div>
         </div>
 
+        <!--Début des modales-->
+        <div id="ansModal" class="modalDialog">
+            <div class="col-sm-4 col-sm-offset-4">
+                <a href="#close" title="Close" class="close">X</a>
+                <h2>Réponse</h2>
+                <div class="col-sm-12">
+                    <textarea type="text" onkeydown="resizeTextArea(this)" onclick="resizeTextArea(this)" onkeyup="resizeTextArea(this)" id="messageAdmin" class="form-control" placeholder="Tapez votre texte ici ..."></textarea>
+                </div>
+                <div class="col-sm-12">
+                    <button class="btn btn-default" type="submit" id="boutonEnvoiAdmin">Envoyer</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="skipModal" class="modalDialog">
+            <div class="col-sm-4 col-sm-offset-4">
+                <div class="col-lg-7">
+                    <h2>Passer ?</h2>
+                </div>
+                <br />
+                <div class="col-lg-5">
+                    <a href="#close"><span class="btn btn-primary" type="submit" id="skip_oui">OUI</span></a>
+                    <a href="#close"><span class="btn btn-primary" type="submit" id="skip_non">NON</span></a>
+                </div>
+            </div>
+        </div>
+
+        <div id="delModal" class="modalDialog">
+            <div class="col-sm-4 col-sm-offset-4">
+                <div class="col-lg-7">
+                    <h2>Supprimer ?</h2>
+                </div>
+                <br />
+                <div class="col-lg-5">
+                    <a href="#close"><span class="btn btn-primary" type="submit" id="del_oui">OUI</span></a>
+                    <a href="#close"><span class="btn btn-primary" type="submit" id="del_non">NON</span></a>
+                </div>
+            </div>
+        </div>
+        <!--Fin des modales-->
+
         <footer class="page-footer">
             <div class="container">
                 © 2014 Télécom Saint-Etienne
