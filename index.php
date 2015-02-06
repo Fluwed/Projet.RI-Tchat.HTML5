@@ -37,7 +37,6 @@
     </head>
 
     <body>
-
         <div id="wrap">
             <header class="page-header">
                 <div class="container">

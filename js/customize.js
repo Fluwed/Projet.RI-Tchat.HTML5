@@ -59,7 +59,7 @@ $(document).ready(function(){
         var msPerYear = msPerDay * 365;
 
         var tableauDate = date.split(/[- :.]/);
-        var msgDate = new Date(tableauDate[0], tableauDate[1]-1, tableauDate[2], tableauDate[3], tableauDate[4], tableauDate[5], tableauDate[6]/1000);
+        var msgDate = new Date(tableauDate[0], tableauDate[1]-1, tableauDate[2], tableauDate[3], tableauDate[4], tableauDate[5], Math.trunc(tableauDate[6]/1000));
         var diffTime = Date.now() - msgDate.getTime();
         
         var diffDate = [];
