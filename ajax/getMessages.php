@@ -39,10 +39,10 @@
             }
         }
         catch (PDOException $e) {
-            echo 0;
+            return false;
         }
     }  
     else {
-        echo 0;
+        return false;
     }
 ?>

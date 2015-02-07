@@ -109,4 +109,54 @@
             return false;
         }
     }
+    
+    function newSalon($titre, $dateO, $dateF) {
+        echo $dateO.'+'.$dateF;
+
+        /*if($pdo = connect_to_database()){
+            try{
+                $query = $pdo->prepare('INSERT INTO salons (titre, dateOuverture, dateFermeture) VALUES (:titre, :dateO, :dateF)');
+                $result = $query->execute(Array('titre' => $titre, 'dateO' => $timestampO, 'dateF' => $timestampF));
+                return $result;
+            }
+            catch (PDOException $e) {
+                return false;
+            }
+        }  
+        else {
+            return false;
+        }*/
+    }
+
+    function newAdmin($name) {
+        if($pdo = connect_to_database()) {
+            try {
+                $query = $pdo->prepare('UPDATE auteurs SET isAdmin=1 WHERE user = :user;');
+                $result = $query->execute(Array('user' => $name));
+                return $result;
+            }
+            catch (PDOException $e) {
+                return false;
+            }
+        }  
+        else {
+            return false;
+        }
+    }
+
+    function delUser($name) {
+        if($pdo = connect_to_database()) {
+            try {
+                $query = $pdo->prepare('DELETE FROM auteurs WHERE user = :user;');
+                $result = $query->execute(Array('user' => $name));
+                return $result;
+            }
+            catch (PDOException $e) {
+                return false;
+            }
+        }  
+        else {
+            return false;
+        }
+    }
 ?>

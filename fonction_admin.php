@@ -4,6 +4,20 @@
     $display_user = '';
     $display_admin = 'style="display:none"';
     
+    if (!empty($_POST)) {
+        if ($_POST['formulaire'] == 'newSalonForm') {
+            newSalon($_POST['titre'], $_POST['dateO'], $_POST['dateF']);
+        }
+        else {
+            if ($_POST['formulaire'] == 'newAdminForm') {
+                newAdmin($_POST['name']);
+            }
+            else {
+                delUser($_POST['name']);
+            }
+        }
+    }
+    
     // Selon si on est connecté ou pas, le label du menu et la page change
     if(isset($_SESSION) AND isset($_SESSION['username']) AND isset($_SESSION['isAdmin'])) {
         if ($_SESSION['isAdmin']==1) {
@@ -32,6 +46,7 @@
         <title>Tchat TSE</title>
         <link rel="shortcut icon" href="images/minilogo-TSE.png">
         <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
         <link href="css/customize.css" rel="stylesheet">
     </head>
 
@@ -65,59 +80,71 @@
                         <div class="panel-body" id="conteneur">
                             <div class="row">
                                 <div class="col-md-10 col-md-offset-1">
-                                    <div class="col-md-12">
-                                        <h2 style="color: #337AB7"> Ajouter un salon : </h2>
-                                        <div class="col-md-6">
-                                            <h3> Ouverture du salon :</h3>
-                                            <div class="input-append date form_datetime">
-                                                <input size="16" type="text" value="" readonly>
-                                                <span class="add-on"><i class="icon-th"></i></span>
+                                    <form action='fonction_admin.php' method='post'>
+                                        <input type="hidden" name="formulaire" value="newSalonForm" />
+                                        <div class="col-md-12">
+                                            <h2 style="color: #337AB7"> Ajouter un salon : </h2>
+                                            <div class="col-md-6">
+                                                <h3> Ouverture du salon :</h3>
+                                                <div class="form-group">
+                                                    <div class='input-group date' id='datetimepicker1'>
+                                                        <input type='text' class="form-control" name="dateO" required/>
+                                                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <h3> Fermeture du salon :</h3>
-                                            <div class="form-group">
-                                                <div class='input-group date' id='datetimepicker2'>
-                                                    <input type='text' class="form-control" />
-                                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                            <div class="col-md-6">
+                                                <h3> Fermeture du salon :</h3>
+                                                <div class="form-group">
+                                                    <div class='input-group date' id='datetimepicker2'>
+                                                        <input type='text' class="form-control" name="dateF" required/>
+                                                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <h3> Titre du salon :</h3>
+                                                <div class="input-group input-group-lg">
+                                                    <input type="text" class="form-control" placeholder="Tapez votre texte ici ..." name="titre" required>
+                                                    <span class="input-group-btn">
+                                                        <button class="btn btn-default" type="submit">Valider</button>
                                                     </span>
                                                 </div>
                                             </div>
                                         </div>
+                                    </form>
+                                    <form action='fonction_admin.php' method='post'>
+                                        <input type="hidden" name="formulaire" value="newAdminForm" />
                                         <div class="col-md-12">
-                                            <h3> Titre du salon :</h3>
-                                            <div class="input-group input-group-lg">
-                                                <input type="text" class="form-control" placeholder="Tapez votre texte ici ...">
-                                                <span class="input-group-btn">
-                                                    <button class="btn btn-default" type="button">Valider</button>
-                                                </span>
+                                            <h2 style="color: #337AB7"> Ajouter un administateur : </h2>
+                                            <div class="col-md-12">
+                                                <h3> Nom de l'administrateur :</h3>
+                                                <div class="input-group input-group-lg">
+                                                    <input type="text" class="form-control" placeholder="Tapez votre texte ici ..." name="name" required>
+                                                    <span class="input-group-btn">
+                                                        <button class="btn btn-default" type="submit">Valider</button>
+                                                    </span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <h2 style="color: #337AB7"> Ajouter un administateur : </h2>
+                                    </form>
+                                    <form action='fonction_admin.php' method='post'>
+                                        <input type="hidden" name="formulaire" value="delUserForm" />
                                         <div class="col-md-12">
-                                            <h3> Nom de l'administrateur :</h3>
-                                            <div class="input-group input-group-lg">
-                                                <input type="text" class="form-control" placeholder="Tapez votre texte ici ...">
-                                                <span class="input-group-btn">
-                                                    <button class="btn btn-default" type="button">Valider</button>
-                                                </span>
+                                            <h2 style="color: #337AB7"> Supprimer un utilisateur : </h2>
+                                            <div class="col-md-12">
+                                                <h3> Nom de l'utilisateur :</h3>
+                                                <div class="input-group input-group-lg">
+                                                    <input type="text" class="form-control" placeholder="Tapez votre texte ici ..." name="name" required>
+                                                    <span class="input-group-btn">
+                                                        <button class="btn btn-default" type="submit">Valider</button>
+                                                    </span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <h2 style="color: #337AB7"> Supprimer un utilisateur : </h2>
-                                        <div class="col-md-12">
-                                            <h3> Nom de l'utilisateur :</h3>
-                                            <div class="input-group input-group-lg">
-                                                <input type="text" class="form-control" placeholder="Tapez votre texte ici ...">
-                                                <span class="input-group-btn">
-                                                    <button class="btn btn-default" type="button">Valider</button>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -133,7 +160,11 @@
         </footer>
 
         <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
+        <script type="text/javascript" src="js/moment.js"></script>
+        <script type="text/javascript" src="js/fr.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
         <script type="text/javascript" src="js/customize.js"></script>
+
     </body>
 </html>

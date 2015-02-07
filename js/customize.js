@@ -287,9 +287,17 @@ $(document).ready(function() {
         var msgId = $(this).data('msg-id');
         supprimerMessage(msgId);
     });
-    
-    $(".form_datetime").datetimepicker({
-        format: "dd MM yyyy - hh:ii"
-    });
 
+});
+
+$(function () {
+    $('#datetimepicker1').datetimepicker({
+        locale: 'fr'
+    });
+});
+
+$(function () {
+    $('#datetimepicker2').datetimepicker({
+        locale: 'fr'
+    });
 });
