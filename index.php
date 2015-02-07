@@ -102,7 +102,7 @@
                     <textarea type="text" onkeydown="resizeTextArea(this)" onclick="resizeTextArea(this)" onkeyup="resizeTextArea(this)" id="messageAdmin" class="form-control" placeholder="Tapez votre texte ici ..."></textarea>
                 </div>
                 <div class="col-sm-12">
-                    <button class="btn btn-default" type="submit" id="boutonEnvoiAdmin">Envoyer</button>
+                    <a href="#close"><span class="btn btn-default" type="submit" id="boutonEnvoiAdmin">Envoyer</span></a>
                 </div>
             </div>
         </div>

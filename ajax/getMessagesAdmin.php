@@ -17,13 +17,13 @@
                 echo json_encode($result);
             }
             else{
-                return false;
+                echo json_encode('');
             }
         }
         catch (PDOException $e) {
             echo 0;
         }
-    }  
+    }
     else {
         echo 0;
     }
