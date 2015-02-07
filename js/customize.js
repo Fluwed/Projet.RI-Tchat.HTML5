@@ -1,3 +1,8 @@
+//pour compatibilité safari
+Math.trunc = Math.trunc || function trunc(x) {
+  return x < 0 ? Math.ceil(x) : Math.floor(x);
+}
+
 function resizeTextArea(text) {
     text.style.height = "1px";
     text.style.height = (text.scrollHeight)+"px";

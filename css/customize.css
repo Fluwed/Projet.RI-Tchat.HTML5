@@ -329,10 +329,6 @@ html, body {
         margin: 15px 0px;
         float: right;
     }
-
-    .modalDialog > div {
-        margin-top: 30%;
-    }
 }
 
 @media all and (min-width: 992px) {
@@ -354,15 +350,5 @@ html, body {
 
     .btn {
         font-size: 14px;
-    }
-
-    .modalDialog > div {
-        margin-top: 70%;
-    }
-}
-
-@media all and (max-width: 768px) {
-    .modalDialog > div {
-        padding-top: 10px;
     }
 }
