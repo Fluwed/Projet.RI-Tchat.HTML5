@@ -221,7 +221,9 @@ $(document).ready(function() {
         $('#titre_salon').text(titre);
         $('#liste_salons').fadeOut('fast');
         $('#tchat').fadeIn('fast');
-        
+        if (idSalon == 0) {
+            $('#zone_submit').fadeOut('fast');
+        }
         if (isAdmin == 0) {
             $("#boutonEnvoi").data("id-salon", idSalon);
             charger(idSalon);
