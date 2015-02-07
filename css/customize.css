@@ -186,6 +186,12 @@ html, body {
     overflow: hidden;
 }
 
+#nomSalon {
+    resize: none;
+    overflow: hidden;
+}
+
+
 #tchat {
     display: none;
 }
@@ -305,8 +311,6 @@ html, body {
     padding-bottom : 15px;
     line-height : 1.9;
 }
-
-
 
 @media all and (max-width: 992px) {
     .wideScreen {

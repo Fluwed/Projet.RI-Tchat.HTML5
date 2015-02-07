@@ -282,5 +282,9 @@ $(document).ready(function() {
         var msgId = $(this).data('msg-id');
         supprimerMessage(msgId);
     });
+    
+    $(".form_datetime").datetimepicker({
+        format: "dd MM yyyy - hh:ii"
+    });
 
 });
