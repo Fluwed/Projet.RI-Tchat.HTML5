@@ -13,14 +13,14 @@
             $timeF = date_create_from_format('d/m/Y H:i', $dateF);
             
             if (date_timestamp_get($timeO) > date_timestamp_get($timeF)) {
-                $message = '<div class="alert alert-danger col-sm-10" role="alert"><strong>Erreur :</strong> La date de fermeture est avant la date d\'ouverture.</div>';
+                $message = '<div class="alert alert-danger col-sm-12" role="alert"><strong>Erreur :</strong> La date de fermeture est avant la date d\'ouverture.</div>';
             }
             else {
                 if (newSalon($_POST['titre'], $timeO, $timeF)) {
-                    $message = '<div class="alert alert-success col-sm-10" role="alert">Le salon '.$_POST['titre'].' a bien été créé.</div>';
+                    $message = '<div class="alert alert-success col-sm-12" role="alert">Le salon '.$_POST['titre'].' a bien été créé.</div>';
                 }
                 else {
-                    $message = '<div class="alert alert-danger col-sm-10" role="alert"><strong>Erreur :</strong> Erreur de connexion à la base de données.</div>';
+                    $message = '<div class="alert alert-danger col-sm-12" role="alert"><strong>Erreur :</strong> Erreur de connexion à la base de données.</div>';
                 }
             }
         }
@@ -28,27 +28,27 @@
             if ($_POST['formulaire'] == 'newAdminForm') {
                 if (userTestExistence($_POST['name'])) {
                     if (newAdmin($_POST['name'])) {
-                        $message = '<div class="alert alert-success col-sm-10" role="alert">L\'utilisateur '.$_POST['name'].' est devenu administrateur.</div>';
+                        $message = '<div class="alert alert-success col-sm-12" role="alert">L\'utilisateur '.$_POST['name'].' est devenu administrateur.</div>';
                     }
                     else {
-                        $message = '<div class="alert alert-danger col-sm-10" role="alert"><strong>Erreur :</strong> Erreur de connexion à la base de données.</div>';
+                        $message = '<div class="alert alert-danger col-sm-12" role="alert"><strong>Erreur :</strong> Erreur de connexion à la base de données.</div>';
                     }
                 }
                 else {
-                    $message = '<div class="alert alert-danger col-sm-10" role="alert"><strong>Erreur :</strong> L\'utilisateur '.$_POST['name'].' n\'existe pas.</div>';
+                    $message = '<div class="alert alert-danger col-sm-12" role="alert"><strong>Erreur :</strong> L\'utilisateur '.$_POST['name'].' n\'existe pas.</div>';
                 }
             }
             else {
                 if (userTestExistence($_POST['name'])) {
                     if (delUser($_POST['name'])) {
-                        $message = '<div class="alert alert-success col-sm-10" role="alert">L\'utilisateur '.$_POST['name'].' a bien été supprimé.</div>';
+                        $message = '<div class="alert alert-success col-sm-12" role="alert">L\'utilisateur '.$_POST['name'].' a bien été supprimé.</div>';
                     }
                     else {
-                        $message = '<div class="alert alert-danger col-sm-10" role="alert"><strong>Erreur :</strong> Erreur de connexion à la base de données.</div>';
+                        $message = '<div class="alert alert-danger col-sm-12" role="alert"><strong>Erreur :</strong> Erreur de connexion à la base de données.</div>';
                     }
                 }
                 else {
-                    $message = '<div class="alert alert-danger col-sm-10" role="alert"><strong>Erreur :</strong> L\'utilisateur '.$_POST['name'].' n\'existe pas.</div>';
+                    $message = '<div class="alert alert-danger col-sm-12" role="alert"><strong>Erreur :</strong> L\'utilisateur '.$_POST['name'].' n\'existe pas.</div>';
                 }
             }
         }
@@ -107,82 +107,82 @@
                         <a href="connexion.php" class="list-group-item"><?php echo $label_connexion; ?></a>
                     </div>
                 </div>
-
-                <?php echo $message; ?>
                 <div class="col-sm-10">
+                    <?php echo $message; ?>
+                </div>
+                <div class="col-sm-10"><br>
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h2 class="panel-title">Fonctions Admin</h2>
                         </div>
+                        
                         <div class="panel-body" id="conteneur">
-                            <div class="row">
-                                <div class="col-md-10 col-md-offset-1">
-                                    <form action='fonction_admin.php' method='post'>
-                                        <input type="hidden" name="formulaire" value="newSalonForm" />
-                                        <div class="col-md-12">
-                                            <h2 style="color: #337AB7"> Ajouter un salon : </h2>
-                                            <div class="col-md-6">
-                                                <h3> Ouverture du salon :</h3>
-                                                <div class="form-group">
-                                                    <div class='input-group date' id='datetimepicker1'>
-                                                        <input type='text' class="form-control" name="dateO" required/>
-                                                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <h3> Fermeture du salon :</h3>
-                                                <div class="form-group">
-                                                    <div class='input-group date' id='datetimepicker2'>
-                                                        <input type='text' class="form-control" name="dateF" required/>
-                                                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <h3> Titre du salon :</h3>
-                                                <div class="input-group input-group-lg">
-                                                    <input type="text" class="form-control" placeholder="Tapez votre texte ici ..." name="titre" required>
-                                                    <span class="input-group-btn">
-                                                        <button class="btn btn-default" type="submit">Valider</button>
+                            <div class="col-md-10 col-md-offset-1">
+                                <form action='fonction_admin.php' method='post'>
+                                    <input type="hidden" name="formulaire" value="newSalonForm" />
+                                    <div class="col-md-12">
+                                        <h2 style="color: #337AB7"> Ajouter un salon : </h2>
+                                        <div class="col-md-6">
+                                            <h3> Ouverture du salon :</h3>
+                                            <div class="form-group">
+                                                <div class='input-group date' id='datetimepicker1'>
+                                                    <input type='text' class="form-control" name="dateO" required/>
+                                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                                     </span>
                                                 </div>
                                             </div>
                                         </div>
-                                    </form>
-                                    <form action='fonction_admin.php' method='post'>
-                                        <input type="hidden" name="formulaire" value="newAdminForm" />
-                                        <div class="col-md-12">
-                                            <h2 style="color: #337AB7"> Ajouter un administateur : </h2>
-                                            <div class="col-md-12">
-                                                <h3> Nom de l'administrateur :</h3>
-                                                <div class="input-group input-group-lg">
-                                                    <input type="text" class="form-control" placeholder="Tapez votre texte ici ..." name="name" required>
-                                                    <span class="input-group-btn">
-                                                        <button class="btn btn-default" type="submit">Valider</button>
+                                        <div class="col-md-6">
+                                            <h3> Fermeture du salon :</h3>
+                                            <div class="form-group">
+                                                <div class='input-group date' id='datetimepicker2'>
+                                                    <input type='text' class="form-control" name="dateF" required/>
+                                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                                     </span>
                                                 </div>
                                             </div>
                                         </div>
-                                    </form>
-                                    <form action='fonction_admin.php' method='post'>
-                                        <input type="hidden" name="formulaire" value="delUserForm" />
                                         <div class="col-md-12">
-                                            <h2 style="color: #337AB7"> Supprimer un utilisateur : </h2>
-                                            <div class="col-md-12">
-                                                <h3> Nom de l'utilisateur :</h3>
-                                                <div class="input-group input-group-lg">
-                                                    <input type="text" class="form-control" placeholder="Tapez votre texte ici ..." name="name" required>
-                                                    <span class="input-group-btn">
-                                                        <button class="btn btn-default" type="submit">Valider</button>
-                                                    </span>
-                                                </div>
+                                            <h3> Titre du salon :</h3>
+                                            <div class="input-group input-group-lg">
+                                                <input type="text" class="form-control" placeholder="Tapez votre texte ici ..." name="titre" required>
+                                                <span class="input-group-btn">
+                                                    <button class="btn btn-default" type="submit">Valider</button>
+                                                </span>
                                             </div>
                                         </div>
-                                    </form>
-                                </div>
+                                    </div>
+                                </form>
+                                <form action='fonction_admin.php' method='post'>
+                                    <input type="hidden" name="formulaire" value="newAdminForm" />
+                                    <div class="col-md-12">
+                                        <h2 style="color: #337AB7"> Ajouter un administateur : </h2>
+                                        <div class="col-md-12">
+                                            <h3> Nom de l'administrateur :</h3>
+                                            <div class="input-group input-group-lg">
+                                                <input type="text" class="form-control" placeholder="Tapez votre texte ici ..." name="name" required>
+                                                <span class="input-group-btn">
+                                                    <button class="btn btn-default" type="submit">Valider</button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <form action='fonction_admin.php' method='post'>
+                                    <input type="hidden" name="formulaire" value="delUserForm" />
+                                    <div class="col-md-12">
+                                        <h2 style="color: #337AB7"> Supprimer un utilisateur : </h2>
+                                        <div class="col-md-12">
+                                            <h3> Nom de l'utilisateur :</h3>
+                                            <div class="input-group input-group-lg">
+                                                <input type="text" class="form-control" placeholder="Tapez votre texte ici ..." name="name" required>
+                                                <span class="input-group-btn">
+                                                    <button class="btn btn-default" type="submit">Valider</button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
