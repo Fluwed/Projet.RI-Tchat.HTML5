@@ -22,7 +22,7 @@
                 header('Location: index.php');
             }
             else {
-                $message = '<div class="alert alert-danger col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2" role="alert"><strong>Erreur :</strong> Identifiants incorrects. Si vous êtes sûr de vos identifiants, réessayez plus tard.</div>';
+                $message = '<div class="alert alert-danger col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2" role="alert"><strong>Erreur :</strong> Identifiants incorrects.</div>';
             }
         }
         else {

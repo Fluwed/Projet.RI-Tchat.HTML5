@@ -1,19 +1,55 @@
 <?php
     include('fonctions.php');
+    $message = '';
     
     $display_user = '';
     $display_admin = 'style="display:none"';
     
     if (!empty($_POST)) {
         if ($_POST['formulaire'] == 'newSalonForm') {
-            newSalon($_POST['titre'], $_POST['dateO'], $_POST['dateF']);
+            $dateO = $_POST['dateO'];
+            $dateF = $_POST['dateF'];
+            $timeO = date_create_from_format('d/m/Y H:i', $dateO);
+            $timeF = date_create_from_format('d/m/Y H:i', $dateF);
+            
+            if (date_timestamp_get($timeO) > date_timestamp_get($timeF)) {
+                $message = '<div class="alert alert-danger col-sm-10" role="alert"><strong>Erreur :</strong> La date de fermeture est avant la date d\'ouverture.</div>';
+            }
+            else {
+                if (newSalon($_POST['titre'], $timeO, $timeF)) {
+                    $message = '<div class="alert alert-success col-sm-10" role="alert">Le salon '.$_POST['titre'].' a bien été créé.</div>';
+                }
+                else {
+                    $message = '<div class="alert alert-danger col-sm-10" role="alert"><strong>Erreur :</strong> Erreur de connexion à la base de données.</div>';
+                }
+            }
         }
         else {
             if ($_POST['formulaire'] == 'newAdminForm') {
-                newAdmin($_POST['name']);
+                if (userTestExistence($_POST['name'])) {
+                    if (newAdmin($_POST['name'])) {
+                        $message = '<div class="alert alert-success col-sm-10" role="alert">L\'utilisateur '.$_POST['name'].' est devenu administrateur.</div>';
+                    }
+                    else {
+                        $message = '<div class="alert alert-danger col-sm-10" role="alert"><strong>Erreur :</strong> Erreur de connexion à la base de données.</div>';
+                    }
+                }
+                else {
+                    $message = '<div class="alert alert-danger col-sm-10" role="alert"><strong>Erreur :</strong> L\'utilisateur '.$_POST['name'].' n\'existe pas.</div>';
+                }
             }
             else {
-                delUser($_POST['name']);
+                if (userTestExistence($_POST['name'])) {
+                    if (delUser($_POST['name'])) {
+                        $message = '<div class="alert alert-success col-sm-10" role="alert">L\'utilisateur '.$_POST['name'].' a bien été supprimé.</div>';
+                    }
+                    else {
+                        $message = '<div class="alert alert-danger col-sm-10" role="alert"><strong>Erreur :</strong> Erreur de connexion à la base de données.</div>';
+                    }
+                }
+                else {
+                    $message = '<div class="alert alert-danger col-sm-10" role="alert"><strong>Erreur :</strong> L\'utilisateur '.$_POST['name'].' n\'existe pas.</div>';
+                }
             }
         }
     }
@@ -72,7 +108,8 @@
                     </div>
                 </div>
 
-                <div class="col-sm-10"><br>
+                <?php echo $message; ?>
+                <div class="col-sm-10">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h2 class="panel-title">Fonctions Admin</h2>
